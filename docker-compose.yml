@@ -1,0 +1,34 @@
+version: "3.3"
+
+services:
+  db:
+    image: mongo:latest
+    container_name: db
+    restart: always
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: admin
+      MONGO_INITDB_ROOT_PASSWORD: nkSLXNZ6K*B%4axqsFq^7EN*
+      MONGO_INITDB_DATABASE: admin
+      MONGO_DATA_DIR: /opt/docker/alpha.internetshutdowns.in/data/db
+    ports:
+      - "27017:27017"
+    volumes:
+      - /opt/docker/alpha.internetshutdowns.in/data/db:/data/db
+    command: mongod --auth
+
+  web:
+    build: .
+    command: bash -c "cd Backend/internetShutdownBackend && ls && python manage.py makemigrations && python manage.py migrate && python manage.py runserver 0.0.0.0:8000"
+    container_name: shutdowns_tracker
+    links:
+      - db
+    volumes:
+      - ./Backend:/Backend
+    ports:
+      - "49152:8000"
+    depends_on:
+      - db
+
+
+
+

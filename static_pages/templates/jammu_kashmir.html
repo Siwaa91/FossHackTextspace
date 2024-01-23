@@ -1,0 +1,299 @@
+{% extends 'base.html' %} {% load static %}
+
+{% block head %}
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel='stylesheet' href="{% static 'css/map.css' %}">
+    <link rel='stylesheet' href="{% static 'css/supporting_orgs.css' %}">
+    <link rel='stylesheet' href="{% static 'css/newcss/style.css' %}">
+    <link rel='stylesheet' type='text/css' href="{% static 'jammu_kashmir/css/style.css' %}">
+
+    <title>Jammu kashmir</title>
+{% endblock head %}
+
+
+{% block content %}
+    <div class="main-body">
+      <div class="main-intro" id="main-intro">
+       The first recorded Internet shutdown in the erstwhile state of Jammu and Kashmir was recorded on 26th January 2012 and since then..
+        <a class="main-intro-read-btn" href="#main-intro-spacing" onclick="$('#main-intro').slideUp(300);$('#main-intro2').slideDown(300);$('#main-intro-spacing').show();"> <span>Read more</span> </a>
+    </div>
+<!-- video trigger -->
+<div class="yt-video" id="yt-video">
+    <div class="video-playback">
+        <div class="video-playback-inner">
+            <div class="video-close-btn" id="close-btn"><span class="close-btn">X</span> Close</div>
+            <div class="video-section">
+                <iframe class="youtube-video" frameborder="0"
+                        allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen></iframe>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- end video trigger -->
+<!--first-row-->
+<div class="first-row">
+    <div class="first-row-inner">
+        <div class="first-col-1">
+            <div class="first-col-1-inner">
+                <div class="first-col-1-1">
+                    <div class="first-col-1-header">J&K <span>Shutdown Numbers</span></div>
+                    <div class="shutdown-stats-block">
+                        <div class="shutdown-stats-inner">
+                            {% for key, value in shutdowns_data.items %}
+                                <div class="shutdown-stats-text-blocks">
+                                    <p class="shutdown-text-upper">{{ value }}</p>
+                                    <p class="shutdown-text-lower">{{ key }}</p>
+                                </div>
+                            {% endfor %}
+
+                        </div>
+                    </div>
+                    <div class="lockdowns-count-block">
+                        <div class="lockdowns-count-block-inner">
+                            <div class="lockdown-count-row">
+                                <div class="lockdown-count-col">Total Shutdowns</div>
+                                <div class="lockdown-count-col">
+                                   {{ mostShutdowns }}
+                                </div>
+                            </div>
+                            <div class="lockdown-count-row">
+                                <div class="lockdown-count-col">Most Shutdowns</div>
+                                <div class="lockdown-count-col"> Jammu and Kashmir, {{ mostShutdowns }}
+                              </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="lockdown-stats-table-block">
+                        <div class="lockdown-stats-table-block-inner">
+                            <div class="stats-table" id="table"></div>
+                        </div>
+                    </div>
+                    <div class="pull-down-to-see-detail-block">Pull down to see detailed information</div>
+                    <p class="down-arrow-icon"><i class="fas fa-chevron-down"></i> <i style="display: none;"
+                                                                                      class="fas fa-angle-up"></i></p>
+                </div>
+                <div class="first-col-1-2">
+                    <div class="first-col-1-header">Recent <span>Shutdowns</span></div>
+                    <div class="recent-shutdown-block">
+                        <div class="recent-shutdown-block-inner" id="render-recent-shutdown">
+                            <div class="recent-shutdown-card">
+                                <div class="recent-shutdown-card-date">20-6-2020</div>
+                                <div class="recent-shutdown-card-body">Internet services were suspended in
+                                    Srinagar following massive search
+                                    operations.
+                                </div>
+                                <div class="recent-shutdown-card-source">Source: <i>Jammu and Kashmir</i></div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="first-col-2">
+            <div class="first-col-2-inner">
+                <div class="back-to-map" id="back_to_map"></div>
+                <div class="states-name-block">
+                    <div class="states-name-block-inner">
+
+                        <img class="alert-png" src="{% static 'images/alert.png' %}">
+
+                        <div class="state-name">Jammu & Kashmir</div>
+                        <div class="shutdowns-in-state">
+                         {{ mostShutdowns }}</div>
+
+                    </div>
+                </div>
+                <div class="india-map">
+                    <div class="first-col-2-map" id="svg"></div>
+                    {#                        <div class="map-scale"><img src="{% static 'images/scale.png' %}"></div>#}
+                </div>
+                <!-- <div class="world-map">
+                    Coming Soon...
+                </div> -->
+            </div>
+        </div>
+    </div>
+</div>
+<!-- end of first container -->
+   <div class="spacing-3" id="main-intro-spacing"></div>
+        <div class="main-intro2" id="main-intro2" >
+   The first recorded Internet shutdown in the erstwhile state of Jammu and Kashmir was recorded on 26th January 2012 and since then the now Union Territory has had the dubious record of having the largest number of Internet shutdowns in India. The now Union Territory has witnessed 3 out of the 4 longest internet shutdowns in India.
+An internet shutdown was imposed in August 2019, when Article 370 of the Constitution was abrogated by the Parliament of India. It was passed by Presidential order number 272 dated August 5, 2019. The State of Jammu and Kashmir was bifurcated into the Union Territories of Jammu & Kashmir and Ladakh. This was a preventive shutdown imposed in the state which is yet to be lifted entirely. The shutdown in Kargil was lifted on December 2019 but continued in other parts of the union territory. The beginning of the communication blockade saw the restriction of landlines as well as mobile services. The ban on landlines was lifted but suspension of mobile internet continued in the valley. In January 2020, 2G services were restored in the valley for verified users. Only whitelisted websites could be accessed and social media remains prohibited. The services were snapped again the same day on account of security concerns for Republic Day. 2G services for whitelisted websites were later restored in January 2020 at 4 PM. On March 2020, a new order was passed by the administration of J&K which stated that while the whitelist was to be removed, the internet could only be accessed using 2G on verified SIMs. Post that, 4G connection was available only in 2 districts Ganderbal and Udampur The erstwhile state regained 4G connection on February 6th 2021 after 552 days of no to low internet.
+    </div>
+<!--
+     <div class="second-continer">
+        <div class="second-cotainer-col-1">
+            <p class="second-container-txt-1 txt-center">Test what is being <b>BLOCKED</b> on your internet</p>
+        </div>
+        <div class="second-cotainer-col-2">
+            <p class="second-container-txt-2 txt-center">Share your experience</p>
+        </div>
+        <div class="second-cotainer-col-3">
+            <p class="second-container-txt-3 txt-center">Report a shutdown</p>
+        </div>
+    </div>
+ -->
+
+<div class="spacing-5"></div>
+<div class="custom-container">
+    <div class="fifth-container">
+        <div class="fifth-inner-container">
+            <div class="fifth-col-1">
+                <div class="fifth-col-1-header">Tweets by @NetShutdowns</div>
+                <div class="fifth-col-1-inner">
+                    <a class="twitter-timeline" href="
+                        https://twitter.com/NetShutdowns?ref_src=twsrc%5Etfw
+                        ">Tweets by NetShutdowns</a>
+
+                    <!-- <div class="fifth-col-1-row"></div>
+                    <div class="spacing-1"></div>
+                    <div class="fifth-col-1-row"></div>
+                    <div class="spacing-1"></div>
+                    <div class="fifth-col-1-row"></div>
+                    <div class="spacing-1"></div>
+                    <div class="fifth-col-1-row"></div> -->
+
+                </div>
+            </div>
+            <div class="fifth-col-2">
+               <div class="fifth-col-2-inner">
+                                {% for item in trendingVideos %}
+
+                                    {% if forloop.counter == 1 %}
+                                        <div class="fifth-col-2-row-1"
+                                             style="background-image: url('{{ item.uploadThumbnail.url }}');">
+                                            <div class="fifth-col-2-row-1-txt">{{ item.videoTitle|title }}</div>
+                                            <img
+                                                    src="{% static '/images/playbtn.png' %}" alt="playbutton"
+                                                    onclick="window.open('{{ item.videoLink }}', '_blank');"
+                                                    data-url="{{ item.videoLink }}"
+                                                    class="video-play-btn-img">
+                                        </div>
+                                    {% elif forloop.counter == 2 %}
+                                        <div class="fifth-col-2-row-2">
+                                        <div class="fifth-col-2-row-2-col-1"
+                                             style="background-image: url('{{ item.uploadThumbnail.url }}');">
+                                            <div class="fifth-col-2-row-2-txt">{{ item.videoTitle|title }}</div>
+                                            <img
+                                                    src="{% static '/images/playbtn.png' %}" alt="playbutton"
+                                                    onclick="window.open('{{ item.videoLink }}', '_blank');"
+                                                    data-url="{{ item.videoLink }}"
+                                                    class="video-play-btn-img">
+                                        </div>
+                                    {% elif forloop.counter == 3 %}
+                                        <div class="fifth-col-2-row-2-col-1"
+                                             style="background-image: url('{{ item.uploadThumbnail.url }}');">
+                                            <div class="fifth-col-2-row-2-txt">{{ item.videoTitle|title }}</div>
+                                            <img
+                                                    src="{% static '/images/playbtn.png' %}" alt="playbutton"
+                                                    onclick="window.open('{{ item.videoLink }}', '_blank');"
+                                                    data-url="{{ item.videoLink }}"
+                                                    class="video-play-btn-img">
+                                        </div>
+                                    {% endif %}
+                                {% endfor %}
+
+                                </div>
+                            </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="spacing-5"></div>
+<!-- ending of fifth container -->
+
+<div class="important-graphics-section">
+    <div class="important-graphics-inner">
+        <div class="spacing-4"></div>
+        <div class="important-graphics-header"><strong>Info Graphics</strong></div>
+        <div class="spacing-3"></div>
+        <div class="important-graphics-row">
+            {% for graphic in graphics %}
+                <div class="important-graphics-col">
+                    <div class="important-graphics-col-image"
+                         style="background-image: url('{{ graphic.uploadImage.url }}')">
+                    </div>
+                    <div class="important-graphics-col-description">
+                        <!--  <p class="important-graphics-name"><strong>Graphic</strong> Resource</p> -->
+                        <p class="important-graphics-name">{{ graphic.title }}</p>
+                        <p class="important-graphics-detail">{{ graphic.description|truncatewords:20 }}</p>
+                    </div>
+                </div>
+            {% endfor %}
+
+        </div>
+
+
+        <div class="spacing-7"></div>
+    </div>
+</div>
+<div class="spacing-7"></div>
+<div class="some-research-title"><strong>Research</strong></div>
+<div class="spacing-7"></div>
+<div class="some-research">
+    <div class="some-research-inner">
+        {% for item in research %}
+
+            <div class="lost-voices-col" {% if item.link %}
+            onclick="location.href='{{ item.link}}'"
+            {% endif %} >
+
+                <div class="lost-voices-title">{{ item.startDate|date }}</div>
+                <div class="lost-voices-description">          {{ item.description|truncatewords:50 }}</div>
+
+            </div>
+        {% endfor %}
+
+    </div>
+
+    <div class="spacing-3"></div>
+
+
+</div>
+
+{% include 'supporting_orgs.html' %}
+<div class="spacing-7"></div>
+
+</div>
+<!-- jquery script -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
+
+<!--scripts-->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+        integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+        crossorigin="anonymous"></script>
+
+
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+
+<!--map scripts-->
+<script>
+    url =
+    {% url 'getshutdowns' %}
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/underscore@1.12.0/underscore-min.js"></script>
+<script type="text/javascript" src="{% static 'jammu_kashmir/js/SVG-map/stroke.js' %}"></script>
+<script type="text/javascript" src="{% static 'jammu_kashmir/js/SVG-map/pikupColor.js' %}"></script>
+<script type="text/javascript" src="{% static 'jammu_kashmir/js/SVG-map/mapPlot.js' %}"></script>
+<script type="text/javascript" src="{% static 'jammu_kashmir/js/SVG-map/carousel.js' %}"></script>
+<script type="text/javascript" src="{% static 'jammu_kashmir/js/newscript/allinone.js' %}"></script>
+<script type="text/javascript" src="{% static 'jammu_kashmir/js/newscript/india.js' %}"></script>
+<script type="text/javascript" src="{% static 'jammu_kashmir/js/newscript/main.js' %}"></script>
+<script type="text/javascript" src="{% static 'jammu_kashmir/js/main.js' %}"></script>
+
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+{% endblock %}

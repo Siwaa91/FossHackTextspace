@@ -1,0 +1,17 @@
+#django core values for secret and debug true or false
+SECRET =
+DEBUG =
+
+#database credentials
+DB_NAME =
+DB_PASSWORD =
+DB_USERNAME =
+DB_HOST =
+DB_PORT =
+
+#add your email credentials
+EMAIL_HOST =
+EMAIL_USER =
+EMAIL_PASSWORD =
+EMAIL_TLS =
+EMAIL_PORT =

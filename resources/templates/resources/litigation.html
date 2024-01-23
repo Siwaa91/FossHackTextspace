@@ -1,0 +1,52 @@
+{% extends 'base.html' %} {% load static %} 
+
+{% block head %}
+<link rel="stylesheet" href="{% static 'litigation/litigation.css' %}">
+{% endblock %}
+
+{% block content %}
+    
+    <div class="spacing-4" id="hide-shutdown-spacing-2"></div>
+    <!-- starting of forth-container -->
+    <div class="custom-container" id="hide-shutdown-container">
+    <h1 style="text-align: center;"> Litigation Tracker</h1>
+           <div class="spacing-2"></div>
+   <p class="page-heading">
+   The litigation section lists out all the significant litigations that have taken place on Internet shutdowns in India.
+   </p>
+
+    <div class="spacing-4"></div>
+        <div class="forth-container">
+            <div class="forth-container-inner">
+
+                {% for post in posts %}
+                    <div class="forth-container-row">
+                        <div class="forth-container-col-1">
+                            <p class="forth-container-col-1-txt-1">{{ post.date|date }}</p>
+                        </div>
+                        <div class="forth-container-col-2">
+                            <div class="forth-container-divider"></div>
+                            <div class="forth-container-circle"></div>
+                        </div>
+                        <div class="forth-container-col-3">
+                            <div class="forth-container-title" onclick="ToggleFaq('toggle{{ post.id }}')">
+                                {{ post.title|capfirst }}
+                            </div>
+                            <div class="forth-container-col-3-txt-1 hidden-txt"
+                                 id="toggle{{ post.id }}">{{ post.description|safe }}<br><br>
+                                <a class="forth-container-col-3-txt-2" href="{{ post.url }}" id="read-more">Read more</a>
+
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+
+            </div>
+
+        </div>
+    </div>
+
+{% endblock %}
+{% block script %}
+<script src="{% static 'litigation/litigation.js' %}"></script>
+{% endblock %}

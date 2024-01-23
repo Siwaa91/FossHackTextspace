@@ -1,0 +1,130 @@
+{% extends 'base.html' %} {% load static %}
+{% block head %}
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel='stylesheet' href="{% static 'shutdownsIndia/css/style.css' %}">
+    <link rel='stylesheet' href="{% static 'shutdownsIndia/css/dateTime.css' %}">
+    <link rel='stylesheet' href="{% static 'component/spacing.css' %}">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+          rel="stylesheet">
+    <title>Shutdowns India Admin panel</title>
+    {#    for date time picker#}
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons">
+    <link rel="stylesheet"
+          href="https://unpkg.com/bootstrap-material-design@4.1.1/dist/css/bootstrap-material-design.min.css"
+          integrity="sha384-wXznGJNEXNG1NFsbm0ugrLFMQPWswR3lds2VeinahP8N0zJw9VWSopbjv2x7WCvX" crossorigin="anonymous">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css"
+          href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons">
+    <link rel="stylesgeet"
+          href="https://rawgit.com/creativetimofficial/material-kit/master/assets/css/material-kit.css">
+{% endblock head %}
+
+{% block content %}
+    <div class="spacing-3"></div>
+    <div class="form-container">
+        <div class="form-container-inner">
+            <div class="container-form-col">
+                <form action="{% url 'test' %}" method="post">
+                    {% csrf_token %}
+                    <div class="form-group">
+                        <label for="author">Author:</label>
+                        <input type="text" name="author" class="form-control" value="{{ user.username|capfirst }}" id="author">
+                    </div>
+                    <div class="form-group">
+                        <label for="description">Description:</label>
+                        <textarea name="description" class="form-control" id="description"></textarea>
+                    </div>
+
+
+                    <div class="form-group">
+                        <label for="states">Select State:</label>
+                        <select class="form-control" name="state" id="states">
+                         <option readonly>Select State</option>
+
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="district">Select District:</label>
+                        <select class="form-control"  id="district">
+
+
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label >Selected District:</label>
+                        <div id="selected-districts">
+
+                        </div>
+
+                    </div>
+
+                    <div class="form-group">
+                        <label for="networkEffected">Network Effected:</label>
+                        <select name="networkEffected" class="form-control" id="networkEffected">
+                            <option value="mobile">Mobile</option>
+                            <option value="broadband">Broadband</option>
+                            <option value="both">Both</option>
+                        </select>
+
+                    </div>
+
+                    <div class="form-group">
+                        <label for="nature">Nature:</label>
+                        <select name="nature" class="form-control" id="nature">
+                            <option value="preventive">Preventive</option>
+                            <option value="reactive">Reactive</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="source">Source:</label>
+                        <input type="text" class="form-control" name="source" id="source">
+                    </div>
+                    <div class="form-group form-check">
+                        <input type="checkbox" class="form-check-input" name="verified" id="exampleCheck1">
+                        <label class="form-check-label" for="exampleCheck1">Verified</label>
+                    </div>
+                         <div class="form-group form-check">
+                        <input type="checkbox" class="form-check-input" name="sameday" id="exampleCheck1">
+                        <label class="form-check-label" for="exampleCheck1">Same day</label>
+                    </div>
+                    <div class="form-group">
+                        <label class="label-control">Start Date </label>
+                        <input type="text" class="form-control datetimepicker" name="startDate" value="{% now 'jS F Y H:i' %}">
+                    </div>
+                    <div class="form-group">
+                        <label class="label-control">End Date</label>
+                        <input type="text" class="form-control datetimepicker" name="endDate" value="{% now 'jS F Y H:i' %}">
+                    </div>
+                    <button type="submit">submit</button>
+
+                </form>
+            </div>
+        </div>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="{% static 'shutdownsIndia/js/main.js' %}"></script>
+    {% block script %}
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+                integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+                crossorigin="anonymous"></script>
+        <script src="https://unpkg.com/popper.js@1.12.6/dist/umd/popper.js"
+                integrity="sha384-fA23ZRQ3G/J53mElWqVJEGJzU0sTs+SvzG8fXVWP+kJQ1lwFAOkcUOysnlKJC33U"
+                crossorigin="anonymous"></script>
+        <script src="https://unpkg.com/bootstrap-material-design@4.1.1/dist/js/bootstrap-material-design.js"
+                integrity="sha384-CauSuKpEqAFajSpkdjv3z9t8E7RlpJ1UP0lKM/+NdtSarroVKu069AlsRPKkFBz9"
+                crossorigin="anonymous"></script>
+        <script src="https://rawgit.com/creativetimofficial/material-kit/master/assets/js/core/jquery.min.js"></script>
+        <script src="https://rawgit.com/creativetimofficial/material-kit/master/assets/js/core/bootstrap-material-design.min.js"></script>
+        <script src="https://rawgit.com/creativetimofficial/material-kit/master/assets/js/plugins/moment.min.js"></script>
+        <script src="https://rawgit.com/creativetimofficial/material-kit/master/assets/js/plugins/bootstrap-datetimepicker.js"></script>
+        <script src="https://rawgit.com/creativetimofficial/material-kit/master/assets/js/material-kit.js"></script>
+        <script src="{% static 'shutdownsIndia/js/dateTime.js' %}"></script>
+
+
+    {% endblock script %}
+{% endblock content %}

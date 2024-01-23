@@ -1,0 +1,45 @@
+{% extends 'base.html' %} {% load static %}
+
+{% block head %}
+    <link rel="stylesheet" href="{% static 'lost_voices.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="main-body">
+    <div class="spacing-3"></div>
+    <h1 style="text-align: center">Lost Voices</h1>
+    <div class="spacing-2"></div>
+   <p class="page-heading">
+      We have collected voices from across the country narrating their tales of living in digital darkness. States and Union Territories all over India from Rajasthan and  West Bengal to Jammu & Kashmir and Karnataka have been impacted by Internet shutdowns and residents of these regions have tales to narrate of the lost connection. We have collected first hand experiences that recount experiences of shutdowns.
+   </p>
+
+    <div class="spacing-4"></div>
+    <div class="main-container">
+        <div class="main-container-inner">
+            {% for post in posts %}
+                <div class="lost-voices-col">
+                {% if post.uploadThumbnail %}
+                    <div class="lost-voices-image" style="background-image: url('{{ post.uploadThumbnail.url }} ')">
+
+                {% else %}
+                    <div class="lost-voices-image" style="background-image: url('https:// ')">
+
+                {% endif %}
+
+            <a class="lost-voices-link" target="_blank" href="{{ post.youtube_url }}"> <img
+                    src="{% static '/images/playbtn.svg' %}" data-url="{{ post.youtube_url }}"
+                    alt="playbtn" class="shutdown-play-btn" onclick="window.open('{{ post.youtube_url }}', '_blank');"></a>
+            </div>
+
+            <div class="lost-voices-title">{{ post.speaker|capfirst }}</div>
+            <div class="lost-voices-description">{{ post.description | safe }}</div>
+
+            </div>
+            {% endfor %}
+
+
+            </div>
+        </div>
+        <div class="spacing-5"></div>
+</div>
+{% endblock %}

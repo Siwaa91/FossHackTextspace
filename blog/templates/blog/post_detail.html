@@ -1,0 +1,30 @@
+{% extends 'base.html' %}  {% load static %}
+{% block head %}
+<title>{{ object.title }}</title>
+<link rel="stylesheet" href="{% static 'blog/post_detail.css' %}">
+{% endblock %}
+{% block content %}
+    <div class="main-body">
+<div class="spacing-5"></div>
+<div class="blog-container">
+	<div class='page-header'>
+		<h1> Internet Shutdowns Blog </h1>
+		<p>
+{#			We fight for the Internet!#}
+		</p>
+	</div>
+<div class="spacing-2"></div>
+
+	<div class="blog-card-body">
+		<h1 class="blog-post-title">{{ object.title }} </h1>
+		<p class="blog-author-info">{{ post.created_on }}</p>
+		<p class="blog-description">
+           {{ object.content | safe }}
+		</p>
+	</div>
+
+</div>
+    <div class="spacing-5"></div>
+    </div>
+{% endblock content %}
+

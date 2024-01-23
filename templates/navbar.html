@@ -1,0 +1,35 @@
+{% load static %}
+    <nav>
+      <input type="checkbox" name="" value="" id="check">
+      <label for="check" class="checkbtn">
+        <i class="fas fa-bars"></i>
+      </label>
+      <label class="logo" onclick="window.location = '/';"><img src="{% static 'images/sflc-tracker-logo.png' %}"></label>
+      <ul class="nav-items-outer">
+        <li><a class="nav-items" href="{% url 'about' %}" >About</a></li>
+        <li><a class="nav-items" href="{% url 'lostvoices' %}" >Lost Voices</a></li>
+            <li class="nav-dropdown"><a class="nav-items" id="nav-dropdown" onclick="navDropdown('#special-cases')" >Special Cases <i class="fas fa-sort-down"></i></a>
+          <ul class="nav-dropdown-outer" id="special-cases">
+            <li><a class="nav-items" href="{% url 'jammu-kashmir'%}" >Jammu and Kashmir</a></li>
+            <li><a class="nav-items" href="{% url 'caa-protest'%}" >CAA Protest</a></li>
+          </ul>
+        </li>
+          <li><a class="nav-items" href="{% url 'innews' %}" >In News</a></li>
+        <li class="nav-dropdown"><a class="nav-items" id="nav-dropdown" onclick="navDropdown('#resources')" >Resources <i class="fas fa-sort-down"></i></a>
+          <ul class="nav-dropdown-outer" id="resources">
+            <li><a class="nav-items" href="{% url 'blog_home' %}" >Blog</a></li>
+            <li><a class="nav-items" href="{% url 'policytracker' %}" >Policy Tracker</a></li>
+            <li><a class="nav-items" href="{% url 'research' %}" >Research</a></li>
+            <li><a class="nav-items" href="{% url 'litigation' %}" >Litigation</a></li>
+            <li><a class="nav-items" href="{% url 'conferences' %}" >Conferences</a></li>
+{#            <li><a class="nav-items" href="{% url 'rti' %} " >RTI's and Orders</a></li>#}
+          </ul>
+        </li>
+
+{#        <li><a class="nav-items" href="/download-data" >Download</a></li>#}
+        <li><a class="nav-items" href="https://sflc.in/donate" >Donate</a></li>
+      </ul>
+      <section>
+
+      </section>
+    </nav>

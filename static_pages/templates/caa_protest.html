@@ -1,0 +1,420 @@
+{% extends 'base.html' %} {% load static %}
+
+{% block head %}
+    <link rel='stylesheet' href="{% static 'css/map.css' %}">
+    <link rel='stylesheet' href="{% static 'css/supporting_orgs.css' %}">
+    <link rel='stylesheet' type='text/css' href="{% static 'caa_protest/css/style.css' %}">
+    <title>CAA Protest</title>
+{% endblock head %}
+
+
+{% block content %}
+    <div class="main-body">
+        <!-- video trigger -->
+        <div class="yt-video" id="yt-video">
+            <div class="video-playback">
+                <div class="video-playback-inner">
+                    <div class="video-close-btn" id="close-btn"><span class="close-btn">X</span> Close</div>
+                    <div class="video-section">
+                        <iframe class="youtube-video" frameborder="0"
+                                allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                                allowfullscreen></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- end video trigger -->
+       <div class="main-intro" id="main-intro">
+        Citizenship Amendment Act, 2019 in India led to wide-scale protests all over the country which led to...
+        <a class="main-intro-read-btn" href="#main-intro-spacing" onclick="$('#main-intro').slideUp(300);$('#main-intro2').slideDown(300);$('#main-intro-spacing').show();"> <span>Read more</span> </a>
+    </div>
+        <!--first-row-->
+        <div class="first-row">
+            <div class="first-row-inner">
+                <div class="first-col-1">
+                    <div class="first-col-1-inner">
+                        <div class="first-col-1-1">
+                            <div class="first-col-1-header">Protest <span>Shutdown Numbers</span></div>
+
+                            <div class="lockdowns-count-block">
+                                <div class="lockdowns-count-block-inner">
+                                    <div class="lockdown-count-row">
+                                        <div class="lockdown-count-col">Total hours of shutdown</div>
+                                        <div class="lockdown-count-col">
+                                            6,315 total hours
+                                        </div>
+                                    </div>
+                                    <div class="lockdown-count-row">
+                                        <div class="lockdown-count-col">Maximum internet shutdowns</div>
+                                        <div class="lockdown-count-col">Uttar Pradesh (11 times)</div>
+                                    </div>
+                                    <div class="lockdown-count-row">
+                                        <div class="lockdown-count-col">Longest internet shutdown</div>
+                                        <div class="lockdown-count-col">Uttar Pradesh - 175 hours</div>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div class="lockdown-stats-table-block">
+                                <div class="lockdown-stats-table-block-inner">
+                                    <div class="stats-table">
+                                        <table class="shutdown-table">
+                                            <tr>
+                                                <th> Date</th>
+                                                <th> State</th>
+                                                <th> District</th>
+                                            </tr>
+                                             <tr>
+                                                <td>10.12.2019</td>
+                                                <td>Tripura</td>
+                                                <td>North Tripura, South Tripura, Dhalai, West Tripura</td>
+                </tr>
+   <tr>
+                                                <td>10.12.2019</td>
+                                                <td>Arunachal Pradesh</td>
+                                                <td>Not mentioned</td>
+                </tr>
+   <tr>
+                                                <td>11.12.2019</td>
+                                                <td>Assam</td>
+                                                <td>Lakhimpur,Dhemaji,Tinsukia,Dibrugarh, Charaideo,Sivasagar,Jorhat,Golaghat, Kamrup, Kamrup
+(Metro)
+</td>
+                </tr>
+   <tr>
+                                                <td>12.12.2019 to 13.12.2019</td>
+                                                <td>Meghalaya</td>
+                                                <td>Entire state</td>
+                </tr>
+   <tr>
+                                                <td>13.12.2019</td>
+                                                <td>Uttar Pradesh </td>
+                                                <td>Aligarh and Saharanpur</td>
+                </tr>
+   <tr>
+                                                <td>15.12.2019</td>
+                                                <td>Uttar Pradesh </td>
+                                                <td>Aligarh</td>
+                </tr>
+   <tr>
+                                                <td>15.12.2019</td>
+                                                <td>Uttar Pradesh </td>
+                                                <td>Meerut</td>
+                </tr>
+   <tr>
+                                                <td>15.12.2019</td>
+                                                <td>West Bengal</td>
+                                                <td>Murshidabad, Malda, Howrah, North 24 Pargana and South 24 Parganas</td>
+                </tr>
+   <tr>
+                                                <td>18.12.2019</td>
+                                                <td>Uttar Pradesh </td>
+                                                <td>Azamgarh</td>
+                </tr>
+   <tr>
+                                                <td>19.12.2019</td>
+                                                <td>Uttar Pradesh </td>
+                                                <td>Bareily</td>
+                </tr>
+   <tr>
+                                                <td>19.12.2019</td>
+                                                <td>Uttar Pradesh </td>
+                                                <td>Lucknow, Bareily, Aligarh, Ghaziabad, Prayagraj, Sambhal, Meerut, Mau, Kanpur, Hapur, Muradabad, Saharanpur, Muzzafarnagar, Shamli, Unnao, Agra, Sultanpur, Bagpat, Bulandshahar, Azamgarh and Pilibhit. </td>
+                </tr>
+   <tr>
+                                                <td>19.12.2019</td>
+                                                <td>Karnaatka</td>
+                                                <td>Mangaluru, Dakshina Kannada</td>
+                </tr>
+   <tr>
+                                                <td>19.12.2019 </td>
+                                                <td>New Delhi</td>
+                                                <td>Walled City areas of North and Central Districts, Mandi House, Seelampur, Jaffarbad & Mustafabad, Jamia Nagar and Shaheen Bagh, Bawana
+</td>
+                </tr>
+   <tr>
+                                                <td>20.12.2019 to 22.12.2019</td>
+                                                <td>Gujarat</td>
+                                                <td>Gandhinagar</td>
+                </tr>
+   <tr>
+                                                <td>20.12.2019</td>
+                                                <td>Madhya Pradesh</td>
+                                                <td>Jabalpur, Bhopal, Indore</td>
+                </tr>
+   <tr>
+                                                <td>20.12.2019</td>
+                                                <td>Rajasthan</td>
+                                                <td>Jaipur</td>
+                </tr>
+   <tr>
+                                                <td>22.12.2019</td>
+                                                <td>Uttar Pradesh </td>
+                                                <td>Prayagraj and Firozabad</td>
+                </tr>
+   <tr>
+                                                <td>26.12.2019</td>
+                                                <td>Uttar Pradesh </td>
+                                                <td>Bulandshahr, Muzaffarnagar, Agra, Firozabad, Sambhal, Aligarh, Kanpur and Ghaziabad and Mathura</td>
+                </tr>
+   <tr>
+                                                <td>26.12.2019</td>
+                                                <td>Uttar Pradesh </td>
+                                                <td>Saharanpur</td>
+                </tr>
+   <tr>
+                                                <td>26.12.2019</td>
+                                                <td>Uttar Pradesh </td>
+                                                <td>Bijnor</td>
+                </tr>
+   <tr>
+                                                <td>04.01.2020</td>
+                                                <td>Andhra Pradesh</td>
+                                                <td>Hyderabad</td>
+                </tr>
+   <tr>
+                                                <td>31.01.2020</td>
+                                                <td>Madhya Pradesh</td>
+                                                <td>Jabalpur </td>
+                </tr>
+   <tr>
+                                                <td>23.02.2020</td>
+                                                <td>Uttar Pradesh </td>
+                                                <td>Aligarh</td>
+                </tr>
+   <tr>
+                                                <td>28.02.2020</td>
+                                                <td>Meghalaya</td>
+                                                <td>East Khasi Hills, ri Bhoi, West Khasi Hills and Jaintia Hills</td>
+                </tr>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--   <div class="pull-down-to-see-detail-block">Pull down to see detailed information</div>
+                              <p class="down-arrow-icon"><i class="fas fa-chevron-down"></i> <i style="display: none;"
+                                                                                                class="fas fa-angle-up"></i>
+                              </p> -->
+                        </div>
+                        <!--  <div class="first-col-1-2">
+                             <div class="first-col-1-header">Recent <span>Shutdowns</span></div>
+                             <div class="recent-shutdown-block">
+                                 <div class="recent-shutdown-block-inner" id="render-recent-shutdown">
+                                     <div class="recent-shutdown-card">
+                                         <div class="recent-shutdown-card-date">20-6-2020</div>
+                                         <div class="recent-shutdown-card-body">Internet services were suspended in
+                                             Srinagar following massive search
+                                             operations.
+                                         </div>
+                                         <div class="recent-shutdown-card-source">Source: <i>Jammu and Kashmir</i></div>
+                                     </div>
+
+                                 </div>
+                             </div>
+                         </div> -->
+                    </div>
+                </div>
+                <div class="first-col-2">
+                    <div class="first-col-2-inner">
+                        <div class="back-to-map" id="back_to_map"></div>
+                        <div class="states-name-block">
+                            <div class="states-name-block-inner">
+{#                                <div class="state-name">CAA</div>#}
+                                <img class="alert-png" src="{% static 'images/alert.png' %}">
+                                <div class="text-below-caa" id="state-name">Shutdowns during anti-CAA protests
+                                </div>
+                            </div>
+                        </div>
+                        <div class="india-map">
+                            <!--  <div class="first-col-2-map" id="svg"></div> -->
+                            <div class="first-col-2-map"><img src="{% static '/images/caaMap/indiamap.svg' %}"></div>
+                            {#                        <div class="map-scale"><img src="{% static 'images/scale.png' %}"></div>#}
+                        </div>
+                        <!-- <div class="world-map">
+                            Coming Soon...
+                        </div> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- end of first container -->
+   <div class="spacing-3" id="main-intro-spacing"></div>
+        <div class="main-intro2" id="main-intro2" >
+    Citizenship Amendment Act, 2019 in India led to wide-scale protests all over the country which led to a number of internet shutdowns. The capital city of India, New Delhi saw its first internet shutdown on 19th December 2019 as well. The entire country was rocked with internet shutdowns which led to crippling of economic activities, educational services as well as healthcare. This page lists down all the shutdowns that took place during this period. We have also collected voices that talk about the impact of these shutdowns.
+    </div>
+
+        <div class="spacing-5"></div>
+        <div class="custom-container">
+            <div class="fifth-container">
+                <div class="fifth-inner-container">
+                    <div class="fifth-col-1">
+                        <div class="fifth-col-1-header">Tweets by @NetShutdowns</div>
+                        <div class="fifth-col-1-inner">
+                            <a class="twitter-timeline" href="
+                        https://twitter.com/NetShutdowns?ref_src=twsrc%5Etfw
+                        ">Tweets by NetShutdowns</a>
+
+                            <!-- <div class="fifth-col-1-row"></div>
+                            <div class="spacing-1"></div>
+                            <div class="fifth-col-1-row"></div>
+                            <div class="spacing-1"></div>
+                            <div class="fifth-col-1-row"></div>
+                            <div class="spacing-1"></div>
+                            <div class="fifth-col-1-row"></div> -->
+
+                        </div>
+                    </div>
+                    <div class="fifth-col-2">
+                       <div class="fifth-col-2-inner">
+                                {% for item in trendingVideos %}
+
+                                    {% if forloop.counter == 1 %}
+                                        <div class="fifth-col-2-row-1"
+                                             style="background-image: url('{{ item.uploadThumbnail.url }}');">
+                                            <div class="fifth-col-2-row-1-txt">{{ item.videoTitle|title }}</div>
+                                            <img
+                                                    src="{% static '/images/playbtn.png' %}" alt="playbutton"
+                                                    onclick="window.open('{{ item.videoLink }}', '_blank');"
+                                                    data-url="{{ item.videoLink }}"
+                                                    class="video-play-btn-img">
+                                        </div>
+                                    {% elif forloop.counter == 2 %}
+                                        <div class="fifth-col-2-row-2">
+                                        <div class="fifth-col-2-row-2-col-1"
+                                             style="background-image: url('{{ item.uploadThumbnail.url }}');">
+                                            <div class="fifth-col-2-row-2-txt">{{ item.videoTitle|title }}</div>
+                                            <img
+                                                    src="{% static '/images/playbtn.png' %}" alt="playbutton"
+                                                    onclick="window.open('{{ item.videoLink }}', '_blank');"
+                                                    data-url="{{ item.videoLink }}"
+                                                    class="video-play-btn-img">
+                                        </div>
+                                    {% elif forloop.counter == 3 %}
+                                        <div class="fifth-col-2-row-2-col-1"
+                                             style="background-image: url('{{ item.uploadThumbnail.url }}');">
+                                            <div class="fifth-col-2-row-2-txt">{{ item.videoTitle|title }}</div>
+                                            <img
+                                                    src="{% static '/images/playbtn.png' %}" alt="playbutton"
+                                                    onclick="window.open('{{ item.videoLink }}', '_blank');"
+                                                    data-url="{{ item.videoLink }}"
+                                                    class="video-play-btn-img">
+                                        </div>
+                                    {% endif %}
+                                {% endfor %}
+
+                                </div>
+                            </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="spacing-5"></div>
+        <!-- ending of fifth container -->
+
+        <div class="important-graphics-section">
+            <div class="important-graphics-inner">
+                <div class="spacing-4"></div>
+                <div class="important-graphics-header"><strong>Info Graphics</strong></div>
+                <div class="spacing-3"></div>
+                <div class="important-graphics-row">
+                    {% for graphic in graphics %}
+                        <div class="important-graphics-col">
+                            <div class="important-graphics-col-image"
+                                 style="background-image: url('{{ graphic.uploadImage.url }}')">
+                            </div>
+                            <div class="important-graphics-col-description">
+                                <!--  <p class="important-graphics-name"><strong>Graphic</strong> Resource</p> -->
+                                <p class="important-graphics-name">{{ graphic.title }}</p>
+                                <p class="important-graphics-detail">{{ graphic.description|truncatewords:20 }}</p>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+                <div class="spacing-7"></div>
+            </div>
+        </div>
+        <!--
+    <div class="spacing-5"></div>
+    <div class="some-research-title"><strong>Research</strong></div>
+    <div class="spacing-4"></div>
+    <div class="some-research">
+        <div class="some-research-inner">
+            {% for item in research %}
+                <div class="some-research-row">
+                    <div class="some-research-heading"><strong>{{ item.district }},</strong> {{ item.state }}</div>
+                    <div class="some-research-sub-heading">{{ item.startDate|date }} - {{ item.endDate|date }}</div>
+                    <div class="some-heading-description">
+                        {{ item.description }}
+                    </div>
+                </div>
+                <div class="spacing-3"></div>
+            {% endfor %}
+        </div>
+    </div>
+
+-->
+        <div class="spacing-2"></div>
+{% include 'supporting_orgs.html' %}
+        <div class="spacing-7"></div>
+
+
+        <!-- jquery script -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
+
+        <!--scripts-->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+                integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+                crossorigin="anonymous"></script>
+
+
+        <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+
+        <!--map scripts-->
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
+        <script type="text/javascript" src="{% static 'caa_protest/js/SVG-map/states/JK.js' %}"></script>
+        <script type="text/javascript" src="{% static 'caa_protest/js/SVG-map/states/uk.js' %}"></script>
+        <script type="text/javascript" src="{% static 'caa_protest/js/SVG-map/states/Kerala.js' %}"></script>
+        <script type="text/javascript"
+                src="{% static 'caa_protest/js/SVG-map/states/Andhra_Pradesh.js' %}"></script>
+        <script type="text/javascript" src="{% static 'caa_protest/js/SVG-map/states/Bihar.js' %}"></script>
+        <script type="text/javascript" src="{% static 'caa_protest/js/SVG-map/states/Chhattisgarh.js' %}"></script>
+        <script type="text/javascript" src="{% static 'caa_protest/js/SVG-map/states/Haryana.js' %}"></script>
+        <script type="text/javascript" src="{% static 'caa_protest/js/SVG-map/states/Gujurat.js' %}"></script>
+        <script type="text/javascript" src="{% static 'caa_protest/js/SVG-map/states/Goa.js' %}"></script>
+        <script type="text/javascript" src="{% static 'caa_protest/js/SVG-map/states/Punjab.js' %}"></script>
+        <script type="text/javascript"
+                src="{% static 'caa_protest/js/SVG-map/states/Himachal_Pradesh.js' %}"></script>
+        <script type="text/javascript" src="{% static 'caa_protest/js/SVG-map/states/Jharkhand.js' %}"></script>
+        <script type="text/javascript" src="{% static 'caa_protest/js/SVG-map/states/Karnataka.js' %}"></script>
+        <script type="text/javascript" src="{% static 'caa_protest/js/SVG-map/states/Ladakh.js' %}"></script>
+        <script type="text/javascript" src="{% static 'caa_protest/js/SVG-map/states/Odisha.js' %}"></script>
+        <script type="text/javascript" src="{% static 'caa_protest/js/SVG-map/states/Tamil_Nadu.js' %}"></script>
+        <script type="text/javascript" src="{% static 'caa_protest/js/SVG-map/states/Telangana.js' %}"></script>
+        <script type="text/javascript"
+                src="{% static 'caa_protest/js/SVG-map/states/Uttar_Pradesh.js' %}"></script>
+        <script type="text/javascript" src="{% static 'caa_protest/js/SVG-map/states/West_Bengal.js' %}"></script>
+        <script type="text/javascript" src="{% static 'caa_protest/js/SVG-map/states/Maharashtra.js' %}"></script>
+        <script type="text/javascript" src="{% static 'caa_protest/js/SVG-map/states/Rajasthan.js' %}"></script>
+        <script type="text/javascript"
+                src="{% static 'caa_protest/js/SVG-map/states/Madhya_Pradesh.js' %}"></script>
+        <script type="text/javascript" src="{% static 'caa_protest/js/SVG-map/states/Assam.js' %}"></script>
+        <script type="text/javascript" src="{% static 'caa_protest/js/SVG-map/states/Manipur.js' %}"></script>
+        <script type="text/javascript" src="{% static 'caa_protest/js/SVG-map/states/Meghalya.js' %}"></script>
+        <script type="text/javascript" src="{% static 'caa_protest/js/SVG-map/states/Sikkim.js' %}"></script>
+        <script type="text/javascript" src="{% static 'caa_protest/js/main.js' %}"></script>
+        <script type="text/javascript" src="{% static 'caa_protest/js/SVG-map/stroke.js' %}"></script>
+        <script type="text/javascript" src="{% static 'caa_protest/js/SVG-map/pikupColor.js' %}"></script>
+        <script type="text/javascript" src="{% static 'caa_protest/js/SVG-map/mapPlot.js' %}"></script>
+        <script type="text/javascript" src="{% static 'caa_protest/js/SVG-map/carousel.js' %}"></script>
+
+
+    </div>
+    </div>
+    </div>
+    </div>
+
+    </div>
+{% endblock %}

@@ -1,0 +1,592 @@
+{% extends 'base.html' %} {% load static %}
+
+{% block head %}
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel='stylesheet' href="{% static 'css/map.css' %}">
+    <link rel='stylesheet' type='text/css' href="{% static 'css/indexfile.css' %}">
+    <link rel='stylesheet' type='text/css' href="{% static 'css/newcss/style.css' %}">
+    <link rel='stylesheet' type='text/css' href="{% static 'css/map-loader.css' %}">
+
+    <link rel='stylesheet' type='text/css' href="{% static 'css/supporting_orgs.css' %}">
+
+    <meta name="description" content="India's exclusive internet shutdowns tracker, striving to keep India online since 2010">
+<meta name="keywords" content="Internetshutdowns, tracker, internetshutdown tracker, sflc.in, internetshutdowns.in, shutdowns in india, internet blockage, internet ban in india">
+
+<!-- SOCIAL MEDIA META -->
+<meta property="og:description" content="India's exclusive internet shutdowns tracker, striving to keep India online since 2010">
+<meta property="og:image" content="{% static 'images/meta_img.png' %}">
+<meta property="og:site_name" content="Internet Shutdowns Tracker by - SFLC.in">
+<meta property="og:title" content="Internet Shutdowns Tracker by - SFLC.in">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://internetshutdowns.in/">
+
+<!-- TWITTER META -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:site" content="Internet Shutdowns Tracker by - SFLC.in">
+<meta name="twitter:creator" content="@NetShutdowns">
+<meta name="twitter:title" content="Internet Shutdowns Tracker by - SFLC.in">
+<meta name="twitter:description" content="India's exclusive internet shutdowns tracker, striving to keep India online since 2010">
+<meta name="twitter:image" content="{% static 'images/meta_img.png' %}">
+
+{% endblock head %}
+{% block title %}
+    Internet Shutdowns Tracker by - SFLC.in
+{% endblock %}
+
+{% block content %}
+    <!-- active shutdowns section-->
+    <div class="active-shutdowns" id="active-shutdowns">
+ <div class="active-shutdowns-inner" id="active-shutdowns-inner">
+
+ </div>
+     <div id="active-shutdowns-close-btn" onclick="$('#active-shutdowns').slideUp(200)">
+    X
+</div>
+    </div>
+
+        <!-- main section-->
+
+    <div class="main-body">
+        <!-- video trigger -->
+        <div class="yt-video" id="yt-video">
+            <div class="video-playback">
+                <div class="video-playback-inner">
+                    <div class="video-close-btn" id="close-btn"><span class="close-btn">X</span> Close</div>
+                    <div class="video-section">
+                        <iframe class="youtube-video" frameborder="0"
+                                allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                                allowfullscreen></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!--
+        popup for test is blocked
+        -->
+        <div class="test-blocked" id="test-blocked">
+            <div class="test-blocked-inner">
+                <div class="test-blocked-container">
+                    <div class="test-blocked-header">Test what is being blocked on your internet! <span
+                            onclick="formClose('#test-blocked')">X</span></div>
+
+                    <div class="test-blocked-detail">
+                        We are trying to gather data about what is blocked across internet service providers in India.
+                        We
+                        need your help to do this.<br>
+                        <br>
+                        Tapping on the button below will open the OONI Probe app to run a series of tests. You need to
+                        have
+                        this app installed on your phone to run these tests. If you do not have the app installed, the
+                        button below will take you to the installation page.<br>
+                        <br>
+                        To help with the list of links that are tested when clicking this button, please write an email
+                        to
+                        mail@sflc.in.
+                    </div>
+                    <div class="test-blocked-bottom">
+                        <a class="test-blocked-btn" target="_blank"
+                           href="https://run.ooni.io/nettest?tn=web_connectivity&ta=%7B%22urls%22%3A%5B%22http%3A%2F%2Fakosha.com%2Fiipm-complaints-98.html%22%2C%22http%3A%2F%2Farizona.indymedia.org%2F%22%2C%22http%3A%2F%2Farrcinfo.blogspot.in%2F2012%2F07%2Frohingya-massacre-alert.html%22%2C%22http%3A%2F%2Farticle.wn.com%2Fview%2F2012%2F08%2F01%2Fmyanmar_troops_opened_fire_on_rohingya_muslims%2F%22%2C%22http%3A%2F%2Farticles.economictimes.indiatimes.com%2F2012-07-19%2Fnews%2F32747422_1_iipm-award-degrees-ugc%22%2C%22http%3A%2F%2Farticles.timesofindia.indiatimes.com%2F2011-06-22%2Fbangalore%2F29689648_1_iipm-counsel-tamil-nadu%22%2C%22http%3A%2F%2Fazatlan.blogspot.in%2F2005%2F10%2Fiipm.html%22%2C%22http%3A%2F%2Fbdcburma.wordpress.com%2F2012%2F07%2F27%2Fphotos-about-burmese-buddhists-killed-the-muslims-in-burma-2%2F%22%2C%22http%3A%2F%2Fbhandafodu.blogspot.com%2F%22%2C%22http%3A%2F%2Fbloggernews.net%2F124029%2F%22%2C%22http%3A%2F%2Fblogs.outlookindia.com%2Fdefault.aspx%3Fddm%3D10%26pid%3D2536%26eid%3D31%22%2C%22http%3A%2F%2Fblogs.outlookindia.com%2Fdefault.aspx%3Fddm%3D10%26pid%3D2536%26eid%3D32%22%2C%22http%3A%2F%2Fblogs.wsj.com%2Findiarealtime%2F2011%2F08%2F19%2F%25e2%2580%2598why-i-took-on-arindam-chaudhuri%25e2%2580%2599%2F%22%2C%22http%3A%2F%2Fblogs.wsj.com%2Findiarealtime%2Ftag%2Farindam-chaudhuri%22%2C%22http%3A%2F%2Fbloodrovaltriped.com%2F%22%2C%22http%3A%2F%2Fbloodroyaltriped.com%2F%22%2C%22http%3A%2F%2Fcaravanmagazine.in%2Freportage%2Fsweet-smell-success%22%2C%22http%3A%2F%2Fcarc.org.in%2F%22%2C%22http%3A%2F%2Fcommonfolkcommonsense.blogspot.com%2F%22%2C%22http%3A%2F%2Fcuriousgawker.blogspot.in%2F2005%2F10%2Fiipm-to-inaugurate-new-answering.html%22%2C%22http%3A%2F%2Fdailykashmirtimes.com.pk%2F%22%2C%22http%3A%2F%2Fdalitstan.org%2F%22%2C%22http%3A%2F%2Fdepositfiles.com%2F%22%2C%22http%3A%2F%2Fdigg.com%2Fsatishsethadag%22%2C%22http%3A%2F%2Fdigg.com%2Fsatishsethreliance%22%2C%22http%3A%2F%2Fdigg.com%2Fsatishsethswan%2Fsubmissions%22%2C%22http%3A%2F%2Fdonotdial100.webs.com%2F%22%2C%22http%3A%2F%2Fdrashukumar.files.wordpress.com%2F2011%2F10%2Fashokarorashivaniarticle.doc%22%2C%22http%3A%2F%2Fdrashukumar.files.wordpress.com%2F2011%2F10%2Fwho_got_shivani_killed.doc%22%2C%22http%3A%2F%2Fekakizunj.com%2Fiipm_scam%22%2C%22http%3A%2F%2Fen.humanrights-iran.ir%2Fnews-%22%2C%22http%3A%2F%2Fen.humanrights-iran.ir%2Fnews-19397.aspx%22%2C%22http%3A%2F%2Fepaper.telegraphindia.com%2Fpublication%2Ftt%2Ftt%2F2012%2F03%2F19.index.shtml%22%2C%22http%3A%2F%2Fethiomuslimsmedia.com%2Findex.php%2Fnews-paper%2F132-burma%22%2C%22http%3A%2F%2Fexposingtheleft.blogspot.com%2F%22%2C%22http%3A%2F%2Ffarazahmed.com%2Fwp-content%2Fuploads%2F2012%2F07%2F602535_335682046513473_517563933_n.jpg%22%2C%22http%3A%2F%2Fgauravsabnis.blogspot.in%2F2005%2F08%2Ffraud-that-is-iipm.html%22%2C%22http%3A%2F%2Fgetahead.rediff.com%2Freport%2F2010%2Faug%2F26%2Fcareer-trouble-brewing-for-indian-institute-of-management-and-planning-in-hyderabad.htm%22%2C%22http%3A%2F%2Fharishc.blogspot.in%2F2011%2F06%2Fcaravan-iipm-article.html%22%2C%22http%3A%2F%2Fhinduexistance.files.wordpress.com%2F2012%2F08%2Fwho-are-responsible-for-assam-riots.jpg%22%2C%22http%3A%2F%2Fhinduexistence.wordpress.com%2F2012%2F03%2Foh-not-again.jpg%22%2C%22http%3A%2F%2Fhinduexistence.wordpress.com%2Ftag%2Fthe-telegraph-kolkata%22%2C%22http%3A%2F%2Fhinduhumanrights.org%2F%22%2C%22http%3A%2F%2Fiipmexposed.blogspot.in%2F%22%2C%22http%3A%2F%2Fiipmfraud.com%2F%22%2C%22http%3A%2F%2Fintellibreifs.blogspot.in%2F2009%2F06%2Fiipm-indian-students-beware-best-only.html%22%2C%22http%3A%2F%2Fissuu.com%2Fmyanmarfriend%2Fdocs%2Fsituation_in_rakhine_state%3Fmode%3Dwindow%26viewmode%3Dsinglepage%22%2C%22http%3A%2F%2Fjammukashmirtimes.com%2F%22%2C%22http%3A%2F%2Fjonnyasp.com%2F%22%2C%22http%3A%2F%2Fkafila.org%2F2011%2F06%2F22%2Farindam-chaudhuri-silchar%22%2C%22http%3A%2F%2Fkitabkhana.blogspot.in%2F2005%2F10%2Ffree-speech-and-iipm.html%22%2C%22http%3A%2F%2Fmerrimusings.typepad.com%2F%22%2C%22http%3A%2F%2Fnanopolitan.blogspot.in%2F2005%2F10%2Fbreaking-news-iipm-faculty-pages-have.html%22%2C%22http%3A%2F%2Fnndh.com%2F%22%2C%22http%3A%2F%2Fqna.rediff.com%2Fquestions-and-answers%2Fwhy-people-hate-iipm-and-arindam-chaudhuri-he-loo%2F22690586%2Fanswers%22%2C%22http%3A%2F%2Frahulyadav.com%2F%22%2C%22http%3A%2F%2Framblingz.blogspot.in%2F2005%2F10%2Fblogs-v-iipm.html%22%2C%22http%3A%2F%2Frogerfacts.blogspot.in%2F2011%2F06%2Fsweet-smell-of-success-true-story-of.html%22%2C%22http%3A%2F%2Fsambharmafia.blogspot.in%2F2006%2F08%2Fplagiarism-charge-on-iipm.html%22%2C%22http%3A%2F%2Fsatishseth.blogspot.com%2F%22%2C%22http%3A%2F%2Fsatishseth2gscamadagofficial.blogspot.com%2F%22%2C%22http%3A%2F%2Fsatishsethadag.blogspot.com%2F%22%2C%22http%3A%2F%2Fsatishsethreliance.tumblr.com%2F%22%2C%22http%3A%2F%2Fseayouthsayso.com%2Fmyanmar-understanding-the-rakhine-rohinqya-confict%22%2C%22http%3A%2F%2Fsethadag.typepad.com%2Fblog%2F%22%2C%22http%3A%2F%2Fshariah4hind.com%2F%22%2C%22http%3A%2F%2Fsheikyermami.com%2F20l2%2F06%2F09%2Fburma-tensions-between-buddhist-residents-and-illegal-muslims-kill-seven%2Fcomment-page-1%2F%22%2C%22http%3A%2F%2Fsierainindia.blogspot.in%2F2011%2F06%2Farindam-chaudhuri-sues-caravan-google.html%22%2C%22http%3A%2F%2Fsmeisp.cn%2F%22%2C%22http%3A%2F%2Ft0.gstatic.com%2Fimages%3Fq%3Dtbn%3Aand9gcsch-hre979-1xz2ymqpegmp9x3y8a_p26brhmriqcui34cqs1s%22%2C%22http%3A%2F%2Ft0.gstatic.com%2Fimages%3Fq%3Dtbn%3Aand9gcsch-tire979-%22%2C%22http%3A%2F%2Ftakbeeremusalsal.blogspot.in%2F2012%2F07%2Fmyanmar-muslims-massacre.html%22%2C%22http%3A%2F%2Fthedailynewsegypt.com%2F2012%2F07%2F02%2Fmyanmars-minority-muslims-under-attack-2%2F%22%2C%22http%3A%2F%2Fthefaultlines.com%2Fworld-news%2F647-un-calls-for-inquiry-over-muslim-massacre-in-burma.html%22%2C%22http%3A%2F%2Fthenortheasttoday.com%2F%22%2C%22http%3A%2F%2Fthepiratescove.us%2F%22%2C%22http%3A%2F%2Ftheunknownindia.blogspot.in%2F2005%2F10%2Fyoure-out-of-rankings-iipm.html%22%2C%22http%3A%2F%2Fvijayknair.blogspot.in%2F2011%2F07%2Fcaravan-and-arindam-chaudhuri-pot-and.html%22%2C%22http%3A%2F%2Fwww.abc.net.au%2Fnews%2F2012-08-01%2Fburma-zoe-daniels%2F4170140%22%2C%22http%3A%2F%2Fwww.allvoices.com%2Fcontributed-news%2F12584536-world-silent-over-the-tragic-and-planted-genocide-of-muslims-in-burma%22%2C%22http%3A%2F%2Fwww.arizona.indymedia.org%2F%22%2C%22http%3A%2F%2Fwww.assamtribune.com%2F%22%2C%22http%3A%2F%2Fwww.atjehcyber.net%2F%22%2C%22http%3A%2F%2Fwww.barandbench.com%2Fbrief%2F%2F1804%2Fdelhi-hc-seeks-response-from-supreme-court-lawyer-for-criticizing-judge-%22%2C%22http%3A%2F%2Fwww.bdcburma.org%2Factivitiesdetails.asp%3Fid%3D201%22%2C%22http%3A%2F%2Fwww.bhandafodu.blogspot.com%2F%22%2C%22http%3A%2F%2Fwww.blogger-index.com%2F693616-satish-seth-adag%22%2C%22http%3A%2F%2Fwww.blogger-index.com%2Fsearch.php%3Fs%3Dsatish%2Bseth%22%2C%22http%3A%2F%2Fwww.blogger.com%2Fprofile%2F03550922789477190410%22%2C%22http%3A%2F%2Fwww.bloggernews.net%2F124029%22%2C%22http%3A%2F%2Fwww.caravanmagazine.in%2Fcategory%2Ftags%2Farindam-chaudhuri%22%2C%22http%3A%2F%2Fwww.caravanmagazine.in%2Fperspectives%2Fiipms-rs500-million-lawsuit-against-caravan%22%2C%22http%3A%2F%2Fwww.careers360.com%2Fnews%2F3957-iipm-uttarkhand-registrar-recommends-a-ban%22%2C%22http%3A%2F%2Fwww.careers360.com%2Fnews_3067-iipm-best-only-in-claims%22%2C%22http%3A%2F%2Fwww.cartoonagainstcorruption.com%2F%22%2C%22http%3A%2F%2Fwww.chakpak.com%2Ffind%2Fimages%2Fkamasutra-hindi-movie%22%2C%22http%3A%2F%2Fwww.complaintsboard.com%2Fcomplaints%2Fnarang-access-pvt-ltd-c426988.html%3Fsort%3Dratea.%22%2C%22http%3A%2F%2Fwww.consumercourt.in%2Fother-product-services%2F114783-fraud-done-iipm-delhi.html%22%2C%22http%3A%2F%2Fwww.consumercourt.nic.in%2Fother-department%2F88450-fraud-iipm-bangalore-campus.html%22%2C%22http%3A%2F%2Fwww.consumercourtforum.in%2Ff39%2Fiipm-abusing-student-62309%22%2C%22http%3A%2F%2Fwww.dalistan.org%2F%22%2C%22http%3A%2F%2Fwww.fakingnews.com%2F2010%2F04%2Fwhat-is-arindam-chaudhuri-saying-to-the-workd%2F%22%2C%22http%3A%2F%2Fwww.fakingnews.com%2F2010%2F07%2Farindam-next-best-seller-to-clear-the-air-on-inception%2F%22%2C%22http%3A%2F%2Fwww.fakingnews.com%2F2010%2F08%2Fiipm-derecognizes-ugc-starts-privy-league-of-universities%2F%22%2C%22http%3A%2F%2Fwww.fakingnews.com%2F2011%2F03%2Farindam-chaudhuri-launches-political-party-to-contest-bengal-elections%22%2C%22http%3A%2F%2Fwww.fakingnews.com%2F2011%2F07%2Fiipm-appoints-poonam-pandey-as-their-brand-ambassador%2F%22%2C%22http%3A%2F%2Fwww.fakingnews.com%2F2012%2F06%2Farindam-chaudhuri-nirmal-baba-in-race-to-become-indias-news-finance-minister%22%2C%22http%3A%2F%2Fwww.firstpost.com%2F%22%2C%22http%3A%2F%2Fwww.firstpost.com%2Fpolitics%2Fsc-stays-iipm-case-against-caravan-magazine-59194.html%22%2C%22http%3A%2F%2Fwww.hardnewsmedia.com%2F%22%2C%22http%3A%2F%2Fwww.hinduhumanrights.org%2Fhindufocus.html%22%2C%22http%3A%2F%2Fwww.hindujagruti.org%2F%22%2C%22http%3A%2F%2Fwww.hinduunity.org%2F%22%2C%22http%3A%2F%2Fwww.iipmfraud.com%2F%22%2C%22http%3A%2F%2Fwww.imamali8.com%2F%22%2C%22http%3A%2F%2Fwww.imphaltimes.com%2F%22%2C%22http%3A%2F%2Fwww.indianexpress.com%2Fnews%2Fcourt-asks-iipm-ugc-to-clarify-on-affiliation%2F676123%2F%22%2C%22http%3A%2F%2Fwww.indianexpress.com%2Fnews%2Fdistancelearning-or-fulltime--iipm-students-confused%2F752287%22%2C%22http%3A%2F%2Fwww.indianexpress.com%2Fnews%2Fiipm-can-t-confer-degrees-ugc%2F679253%2F%22%2C%22http%3A%2F%2Fwww.indianexpress.com%2Fnews%2Fiipm-not-recognized-can-t-award-degrees-ugc%2F987618%22%2C%22http%3A%2F%2Fwww.indianexpress.com%2Fnews%2Fiipm-students-file-cheating-complaint-against-dean%2F790646%22%2C%22http%3A%2F%2Fwww.indybay.org%2F%22%2C%22http%3A%2F%2Fwww.islamabadtimesonline.com%2Frohingya-aung-%25e2%2580%2598silent%25e2%2580%2599-kyi-no-more-a-heroine%2F%22%2C%22http%3A%2F%2Fwww.jafrianews.com%2F%22%2C%22http%3A%2F%2Fwww.jammag.com%2Fnewjam%2Fcareers%2Fn%2Fshowart.php%3Fart_id%3D149%22%2C%22http%3A%2F%2Fwww.kashmirtimes.com%2F%22%2C%22http%3A%2F%2Fwww.manipurtimes.com%2F%22%2C%22http%3A%2F%2Fwww.mensxp.com%2Fwork-life%2Fcareer-center%2F5363-5-things-mba-aspirants-need-to-know-about-iipm.html%22%2C%22http%3A%2F%2Fwww.moneycontrol.com%2Fstocks%2Fcptmarket%2Fsearchpage%2Fsearch.php%3Fhl%3D3%26companyname%3Dsatish%2520seth%26start%3D24%22%2C%22http%3A%2F%2Fwww.mwmjawan.com%2Feng%2Fnews%2Finternatlonal%2Fitem%2F132.html%22%2C%22http%3A%2F%2Fwww.myspace.com%2Fvideo%2Fsatishsethswan%2Fwhy-our-alsatian-dog-felt-restless-describes-satish-seth-swan%2F108188726%22%2C%22http%3A%2F%2Fwww.nndh.com%2F%22%2C%22http%3A%2F%2Fwww.onislam.net%2Fengiish%2Fnews%2Fasia-pacific%2F458186-burma-monks-fuel-rohingya-muslim-hatred.html%22%2C%22http%3A%2F%2Fwww.outlookindia.com%2F%22%2C%22http%3A%2F%2Fwww.rahulyadav.com%2F%22%2C%22http%3A%2F%2Fwww.rina.in%2Fnews%2Fmyanmar-embassy%25e2%2580%2599s-response-on-rohingya-killing%2F%22%2C%22http%3A%2F%2Fwww.silobreaker.com%2Fdelhi-hc-seeks-response-from-supreme-court-lawyer-for-criticizing-judge-52264948356772003931%22%2C%22http%3A%2F%2Fwww.submitlink.khatana.net%2F2010%2F09%2Fjennifer-stano-is-engaged-to.html%22%2C%22http%3A%2F%2Fwww.tehelka.com%2F%22%2C%22http%3A%2F%2Fwww.telegraph.co.uk%2Fnews%2Fpicturegalleries%2Fworldnews%2F9324473%2Ftensions-rise-in-burma-as-rakhine-buddhists-and-rohingya-muslims-clash.html%22%2C%22http%3A%2F%2Fwww.theunrealtimes.com%2F%22%2C%22http%3A%2F%2Fwww.theunrealtimes.com%2F2011%2F06%2F22%2Fdare-to-search-beyond-google-arindham-chaudhury-to-launch-ponytail-seach%2F%22%2C%22http%3A%2F%2Fwww.timesofummah.com%2F2012%2F07%2F24%2Frohingya-muslims-mascare%2Frohingya-muslim-people-bodies-in-myanmar%2F%22%2C%22http%3A%2F%2Fwww.tv.tamilwire.com%2F%22%2C%22http%3A%2F%2Fwww.ugc.ac.in%2Fpdfnews%2F3604913_english.pdf%22%2C%22http%3A%2F%2Fwww.unicreation2u.com%2F%22%2C%22http%3A%2F%2Fwww.uniexchange2u.com%2F%22%2C%22http%3A%2F%2Fwww.unigold2u.com%2F%22%2C%22http%3A%2F%2Fwww.unipay2u-international.com%2F%22%2C%22http%3A%2F%2Fwww.unipay2u-marketing-private-limited.com%2F%22%2C%22http%3A%2F%2Fwww.unipay2u-trading.com%2F%22%2C%22http%3A%2F%2Fwww.unipay2u.com%2F%22%2C%22http%3A%2F%2Fwww.unipaygateway2u.com%2F%22%2C%22http%3A%2F%2Fwww.vergingoldint.com%2F%22%2C%22http%3A%2F%2Fwww.visarev.com%2F%22%2C%22http%3A%2F%2Fyouthcurry.blogspot.in%2F2005%2F10%2Flies-damned-lies-and-fake-blogs.html%22%2C%22http%3A%2F%2Fzahidsay.blogspot.in%2F2012%2F07%2Fcontinued-massacre-of-rohingya-muslims.html%22%2C%22http%3A%2F%2Fwww.bbc.com%2Fbengali%22%2C%22http%3A%2F%2Fwww.bbcbengali.com%2F%22%2C%22http%3A%2F%2Fwww.bbc.com%2Fhindi%2F%22%2C%22http%3A%2F%2Fwww.bbchindi.com%2F%22%2C%22http%3A%2F%2Fwww.bbc.com%2Furdu%2F%22%2C%22http%3A%2F%2Fwww.bbcurdu.com%2F%22%2C%22http%3A%2F%2Ftwocircles.net%2F%22%2C%22http%3A%2F%2Fwww.aljazeera.com%2Fnews%2F2017%2F11%2Fmyanmar-attacks-rohingya-ethnic-cleansing-171122143122930.html%22%2C%22http%3A%2F%2Fwww.bbc.com%2Fnews%2Fworld-asia-india-41318225%22%2C%22http%3A%2F%2Fwww.bbc.com%2Fnews%2Fworld-asia-india-41144884%22%2C%22http%3A%2F%2Fwww.scmp.com%2Fweek-asia%2Fgeopolitics%2Farticle%2F2115839%2Fwhy-do-china-india-back-myanmar-over-rohingya-crisis%22%2C%22https%3A%2F%2Fwww.huffingtonpost.com%2Fentry%2Findias-responses-to-the-complex-rohingya-crisis-in_us_5a0afecce4b06d8966cf32a8%22%2C%22http%3A%2F%2Fqz.com%2F1099577%2Frohingya-crisis-for-refugees-in-india-the-safety-net-is-shrinking-and-government-help-is-nowhere-in-sight%2F%22%2C%22http%3A%2F%2Fwww.channelnewsasia.com%2Fnews%2Fasiapacific%2Fcommentary-in-rohingya-crisis-india-faces-moral-obligations-9230258%22%2C%22http%3A%2F%2Fwww.cbc.ca%2Fnews%2Fworld%2Frohingya-apartheid-amnesty-report-1.4411663%22%2C%22https%3A%2F%2Fwww.nytimes.com%2F2017%2F10%2F06%2Fopinion%2Frohingya-bangladesh-myanmar.html%22%2C%22https%3A%2F%2Fwww.sentinelassam.com%2F%22%2C%22https%3A%2F%2Fwww.medianama.com%2F2019%2F02%2F223-aadhaar-operator-biometrics-stolen-huffpost%2F%22%2C%22http%3A%2F%2Ftheladiesfinger.com%2Fif-you-were-confused-or-enraged-by-smriti-iranis-sanitary-pad-remarks-her-job-here-is-done%2F%22%2C%22https%3A%2F%2Fswarajyamag.com%2Fpolitics%2Fcricket-boycott-wont-move-terroristan-but-its-the-right-way-to-test-our-own-national-resolve%22%2C%22https%3A%2F%2Fwww.ifp.co.in%2F%22%2C%22https%3A%2F%2Ffreepresskashmir.com%2F%22%2C%22https%3A%2F%2Fwww.eenadu.net%2F%22%2C%22https%3A%2F%2Fwww.andhrajyothy.com%2F%22%2C%22http%3A%2F%2Fmpaper.sakshi.com%2F%22%2C%22http%3A%2F%2Flankeshpatrike.com%2F%22%2C%22https%3A%2F%2Fwww.thekashmirmonitor.net%2F%22%2C%22https%3A%2F%2Fkashmirobserver.net%2F%22%2C%22https%3A%2F%2Fwww.heraldgoa.in%2F%22%2C%22http%3A%2F%2Fwww.theshillongtimes.com%2F%22%2C%22http%3A%2F%2Fwww.nagalandpost.com%2F%22%2C%22https%3A%2F%2Fwww.bhaskar.com%2F%22%2C%22https%3A%2F%2Fwww.mathrubhumi.com%2F%22%2C%22https%3A%2F%2Fkashmirreader.com%2F%22%2C%22http%3A%2F%2Fsangaiexpress.com%2F%22%2C%22http%3A%2F%2Fpoknapham.in%2F%22%2C%22http%3A%2F%2Fsanaleibak.in%2F%22%2C%22http%3A%2F%2Fhueiyenlanpao.com%2F%22%2C%22http%3A%2F%2Fnaharolgithoudang.in%2F%22%2C%22http%3A%2F%2Fichelexpress.org%2F%22%2C%22http%3A%2F%2Fireibak.tripod.com%2F%22%2C%22http%3A%2F%2Fimphaltimes.com%2F%22%2C%22http%3A%2F%2Fmanipuronline.com%2F%22%2C%22http%3A%2F%2Fkanglaonline.com%2F%22%2C%22https%3A%2F%2Fnenow.in%2F%22%2C%22http%3A%2F%2Ftheshillongtimes.com%2F%22%2C%22http%3A%2F%2Fnagajournal.com%2F%22%2C%22http%3A%2F%2Finsidene.com%2F%22%2C%22http%3A%2F%2Fsaisat.com%2F%22%2C%22http%3A%2F%2Fnortheastlivetv.com%2F%22%2C%22http%3A%2F%2Feimitimes.in%2F%22%2C%22http%3A%2F%2Fraiot.in%2F%22%2C%22http%3A%2F%2Feastermirrornagaland.com%2F%22%2C%22http%3A%2F%2Fnagalimvoice.com%2F%22%2C%22https%3A%2F%2Fphualvatimes.com%2F%22%2C%22https%3A%2F%2Findianexpress.com%2F%22%2C%22https%3A%2F%2Fwww.ndtv.com%2F%22%5D%7D&mv=1.2.0">TEST
+                            MEDIA AND BLOGS WEBSITES</a>
+                        <a class="test-blocked-btn" target="_blank"
+                           href="https://run.ooni.io/nettest?tn=web_connectivity&ta=%7B%22urls%22%3A%5B%22http%3A%2F%2Fakosha.com%2Fiipm-complaints-98.html%22%2C%22http%3A%2F%2Farizona.indymedia.org%2F%22%2C%22http%3A%2F%2Farrcinfo.blogspot.in%2F2012%2F07%2Frohingya-massacre-alert.html%22%2C%22http%3A%2F%2Farticle.wn.com%2Fview%2F2012%2F08%2F01%2Fmyanmar_troops_opened_fire_on_rohingya_muslims%2F%22%2C%22http%3A%2F%2Farticles.economictimes.indiatimes.com%2F2012-07-19%2Fnews%2F32747422_1_iipm-award-degrees-ugc%22%2C%22http%3A%2F%2Farticles.timesofindia.indiatimes.com%2F2011-06-22%2Fbangalore%2F29689648_1_iipm-counsel-tamil-nadu%22%2C%22http%3A%2F%2Fazatlan.blogspot.in%2F2005%2F10%2Fiipm.html%22%2C%22http%3A%2F%2Fbdcburma.wordpress.com%2F2012%2F07%2F27%2Fphotos-about-burmese-buddhists-killed-the-muslims-in-burma-2%2F%22%2C%22http%3A%2F%2Fbhandafodu.blogspot.com%2F%22%2C%22http%3A%2F%2Fbloggernews.net%2F124029%2F%22%2C%22http%3A%2F%2Fblogs.outlookindia.com%2Fdefault.aspx%3Fddm%3D10%26pid%3D2536%26eid%3D31%22%2C%22http%3A%2F%2Fblogs.outlookindia.com%2Fdefault.aspx%3Fddm%3D10%26pid%3D2536%26eid%3D32%22%2C%22http%3A%2F%2Fblogs.wsj.com%2Findiarealtime%2F2011%2F08%2F19%2F%25e2%2580%2598why-i-took-on-arindam-chaudhuri%25e2%2580%2599%2F%22%2C%22http%3A%2F%2Fblogs.wsj.com%2Findiarealtime%2Ftag%2Farindam-chaudhuri%22%2C%22http%3A%2F%2Fbloodrovaltriped.com%2F%22%2C%22http%3A%2F%2Fbloodroyaltriped.com%2F%22%2C%22http%3A%2F%2Fcaravanmagazine.in%2Freportage%2Fsweet-smell-success%22%2C%22http%3A%2F%2Fcarc.org.in%2F%22%2C%22http%3A%2F%2Fcommonfolkcommonsense.blogspot.com%2F%22%2C%22http%3A%2F%2Fcuriousgawker.blogspot.in%2F2005%2F10%2Fiipm-to-inaugurate-new-answering.html%22%2C%22http%3A%2F%2Fdailykashmirtimes.com.pk%2F%22%2C%22http%3A%2F%2Fdalitstan.org%2F%22%2C%22http%3A%2F%2Fdepositfiles.com%2F%22%2C%22http%3A%2F%2Fdigg.com%2Fsatishsethadag%22%2C%22http%3A%2F%2Fdigg.com%2Fsatishsethreliance%22%2C%22http%3A%2F%2Fdigg.com%2Fsatishsethswan%2Fsubmissions%22%2C%22http%3A%2F%2Fdonotdial100.webs.com%2F%22%2C%22http%3A%2F%2Fdrashukumar.files.wordpress.com%2F2011%2F10%2Fashokarorashivaniarticle.doc%22%2C%22http%3A%2F%2Fdrashukumar.files.wordpress.com%2F2011%2F10%2Fwho_got_shivani_killed.doc%22%2C%22http%3A%2F%2Fekakizunj.com%2Fiipm_scam%22%2C%22http%3A%2F%2Fen.humanrights-iran.ir%2Fnews-%22%2C%22http%3A%2F%2Fen.humanrights-iran.ir%2Fnews-19397.aspx%22%2C%22http%3A%2F%2Fepaper.telegraphindia.com%2Fpublication%2Ftt%2Ftt%2F2012%2F03%2F19.index.shtml%22%2C%22http%3A%2F%2Fethiomuslimsmedia.com%2Findex.php%2Fnews-paper%2F132-burma%22%2C%22http%3A%2F%2Fexposingtheleft.blogspot.com%2F%22%2C%22http%3A%2F%2Ffarazahmed.com%2Fwp-content%2Fuploads%2F2012%2F07%2F602535_335682046513473_517563933_n.jpg%22%2C%22http%3A%2F%2Fgauravsabnis.blogspot.in%2F2005%2F08%2Ffraud-that-is-iipm.html%22%2C%22http%3A%2F%2Fgetahead.rediff.com%2Freport%2F2010%2Faug%2F26%2Fcareer-trouble-brewing-for-indian-institute-of-management-and-planning-in-hyderabad.htm%22%2C%22http%3A%2F%2Fharishc.blogspot.in%2F2011%2F06%2Fcaravan-iipm-article.html%22%2C%22http%3A%2F%2Fhinduexistance.files.wordpress.com%2F2012%2F08%2Fwho-are-responsible-for-assam-riots.jpg%22%2C%22http%3A%2F%2Fhinduexistence.wordpress.com%2F2012%2F03%2Foh-not-again.jpg%22%2C%22http%3A%2F%2Fhinduexistence.wordpress.com%2Ftag%2Fthe-telegraph-kolkata%22%2C%22http%3A%2F%2Fhinduhumanrights.org%2F%22%2C%22http%3A%2F%2Fiipmexposed.blogspot.in%2F%22%2C%22http%3A%2F%2Fiipmfraud.com%2F%22%2C%22http%3A%2F%2Fintellibreifs.blogspot.in%2F2009%2F06%2Fiipm-indian-students-beware-best-only.html%22%2C%22http%3A%2F%2Fissuu.com%2Fmyanmarfriend%2Fdocs%2Fsituation_in_rakhine_state%3Fmode%3Dwindow%26viewmode%3Dsinglepage%22%2C%22http%3A%2F%2Fjammukashmirtimes.com%2F%22%2C%22http%3A%2F%2Fjonnyasp.com%2F%22%2C%22http%3A%2F%2Fkafila.org%2F2011%2F06%2F22%2Farindam-chaudhuri-silchar%22%2C%22http%3A%2F%2Fkitabkhana.blogspot.in%2F2005%2F10%2Ffree-speech-and-iipm.html%22%2C%22http%3A%2F%2Fmerrimusings.typepad.com%2F%22%2C%22http%3A%2F%2Fnanopolitan.blogspot.in%2F2005%2F10%2Fbreaking-news-iipm-faculty-pages-have.html%22%2C%22http%3A%2F%2Fnndh.com%2F%22%2C%22http%3A%2F%2Fqna.rediff.com%2Fquestions-and-answers%2Fwhy-people-hate-iipm-and-arindam-chaudhuri-he-loo%2F22690586%2Fanswers%22%2C%22http%3A%2F%2Frahulyadav.com%2F%22%2C%22http%3A%2F%2Framblingz.blogspot.in%2F2005%2F10%2Fblogs-v-iipm.html%22%2C%22http%3A%2F%2Frogerfacts.blogspot.in%2F2011%2F06%2Fsweet-smell-of-success-true-story-of.html%22%2C%22http%3A%2F%2Fsambharmafia.blogspot.in%2F2006%2F08%2Fplagiarism-charge-on-iipm.html%22%2C%22http%3A%2F%2Fsatishseth.blogspot.com%2F%22%2C%22http%3A%2F%2Fsatishseth2gscamadagofficial.blogspot.com%2F%22%2C%22http%3A%2F%2Fsatishsethadag.blogspot.com%2F%22%2C%22http%3A%2F%2Fsatishsethreliance.tumblr.com%2F%22%2C%22http%3A%2F%2Fseayouthsayso.com%2Fmyanmar-understanding-the-rakhine-rohinqya-confict%22%2C%22http%3A%2F%2Fsethadag.typepad.com%2Fblog%2F%22%2C%22http%3A%2F%2Fshariah4hind.com%2F%22%2C%22http%3A%2F%2Fsheikyermami.com%2F20l2%2F06%2F09%2Fburma-tensions-between-buddhist-residents-and-illegal-muslims-kill-seven%2Fcomment-page-1%2F%22%2C%22http%3A%2F%2Fsierainindia.blogspot.in%2F2011%2F06%2Farindam-chaudhuri-sues-caravan-google.html%22%2C%22http%3A%2F%2Fsmeisp.cn%2F%22%2C%22http%3A%2F%2Ft0.gstatic.com%2Fimages%3Fq%3Dtbn%3Aand9gcsch-hre979-1xz2ymqpegmp9x3y8a_p26brhmriqcui34cqs1s%22%2C%22http%3A%2F%2Ft0.gstatic.com%2Fimages%3Fq%3Dtbn%3Aand9gcsch-tire979-%22%2C%22http%3A%2F%2Ftakbeeremusalsal.blogspot.in%2F2012%2F07%2Fmyanmar-muslims-massacre.html%22%2C%22http%3A%2F%2Fthedailynewsegypt.com%2F2012%2F07%2F02%2Fmyanmars-minority-muslims-under-attack-2%2F%22%2C%22http%3A%2F%2Fthefaultlines.com%2Fworld-news%2F647-un-calls-for-inquiry-over-muslim-massacre-in-burma.html%22%2C%22http%3A%2F%2Fthenortheasttoday.com%2F%22%2C%22http%3A%2F%2Fthepiratescove.us%2F%22%2C%22http%3A%2F%2Ftheunknownindia.blogspot.in%2F2005%2F10%2Fyoure-out-of-rankings-iipm.html%22%2C%22http%3A%2F%2Fvijayknair.blogspot.in%2F2011%2F07%2Fcaravan-and-arindam-chaudhuri-pot-and.html%22%2C%22http%3A%2F%2Fwww.abc.net.au%2Fnews%2F2012-08-01%2Fburma-zoe-daniels%2F4170140%22%2C%22http%3A%2F%2Fwww.allvoices.com%2Fcontributed-news%2F12584536-world-silent-over-the-tragic-and-planted-genocide-of-muslims-in-burma%22%2C%22http%3A%2F%2Fwww.arizona.indymedia.org%2F%22%2C%22http%3A%2F%2Fwww.assamtribune.com%2F%22%2C%22http%3A%2F%2Fwww.atjehcyber.net%2F%22%2C%22http%3A%2F%2Fwww.barandbench.com%2Fbrief%2F%2F1804%2Fdelhi-hc-seeks-response-from-supreme-court-lawyer-for-criticizing-judge-%22%2C%22http%3A%2F%2Fwww.bdcburma.org%2Factivitiesdetails.asp%3Fid%3D201%22%2C%22http%3A%2F%2Fwww.bhandafodu.blogspot.com%2F%22%2C%22http%3A%2F%2Fwww.blogger-index.com%2F693616-satish-seth-adag%22%2C%22http%3A%2F%2Fwww.blogger-index.com%2Fsearch.php%3Fs%3Dsatish%2Bseth%22%2C%22http%3A%2F%2Fwww.blogger.com%2Fprofile%2F03550922789477190410%22%2C%22http%3A%2F%2Fwww.bloggernews.net%2F124029%22%2C%22http%3A%2F%2Fwww.caravanmagazine.in%2Fcategory%2Ftags%2Farindam-chaudhuri%22%2C%22http%3A%2F%2Fwww.caravanmagazine.in%2Fperspectives%2Fiipms-rs500-million-lawsuit-against-caravan%22%2C%22http%3A%2F%2Fwww.careers360.com%2Fnews%2F3957-iipm-uttarkhand-registrar-recommends-a-ban%22%2C%22http%3A%2F%2Fwww.careers360.com%2Fnews_3067-iipm-best-only-in-claims%22%2C%22http%3A%2F%2Fwww.cartoonagainstcorruption.com%2F%22%2C%22http%3A%2F%2Fwww.chakpak.com%2Ffind%2Fimages%2Fkamasutra-hindi-movie%22%2C%22http%3A%2F%2Fwww.complaintsboard.com%2Fcomplaints%2Fnarang-access-pvt-ltd-c426988.html%3Fsort%3Dratea.%22%2C%22http%3A%2F%2Fwww.consumercourt.in%2Fother-product-services%2F114783-fraud-done-iipm-delhi.html%22%2C%22http%3A%2F%2Fwww.consumercourt.nic.in%2Fother-department%2F88450-fraud-iipm-bangalore-campus.html%22%2C%22http%3A%2F%2Fwww.consumercourtforum.in%2Ff39%2Fiipm-abusing-student-62309%22%2C%22http%3A%2F%2Fwww.dalistan.org%2F%22%2C%22http%3A%2F%2Fwww.fakingnews.com%2F2010%2F04%2Fwhat-is-arindam-chaudhuri-saying-to-the-workd%2F%22%2C%22http%3A%2F%2Fwww.fakingnews.com%2F2010%2F07%2Farindam-next-best-seller-to-clear-the-air-on-inception%2F%22%2C%22http%3A%2F%2Fwww.fakingnews.com%2F2010%2F08%2Fiipm-derecognizes-ugc-starts-privy-league-of-universities%2F%22%2C%22http%3A%2F%2Fwww.fakingnews.com%2F2011%2F03%2Farindam-chaudhuri-launches-political-party-to-contest-bengal-elections%22%2C%22http%3A%2F%2Fwww.fakingnews.com%2F2011%2F07%2Fiipm-appoints-poonam-pandey-as-their-brand-ambassador%2F%22%2C%22http%3A%2F%2Fwww.fakingnews.com%2F2012%2F06%2Farindam-chaudhuri-nirmal-baba-in-race-to-become-indias-news-finance-minister%22%2C%22http%3A%2F%2Fwww.firstpost.com%2F%22%2C%22http%3A%2F%2Fwww.firstpost.com%2Fpolitics%2Fsc-stays-iipm-case-against-caravan-magazine-59194.html%22%2C%22http%3A%2F%2Fwww.hardnewsmedia.com%2F%22%2C%22http%3A%2F%2Fwww.hinduhumanrights.org%2Fhindufocus.html%22%2C%22http%3A%2F%2Fwww.hindujagruti.org%2F%22%2C%22http%3A%2F%2Fwww.hinduunity.org%2F%22%2C%22http%3A%2F%2Fwww.iipmfraud.com%2F%22%2C%22http%3A%2F%2Fwww.imamali8.com%2F%22%2C%22http%3A%2F%2Fwww.imphaltimes.com%2F%22%2C%22http%3A%2F%2Fwww.indianexpress.com%2Fnews%2Fcourt-asks-iipm-ugc-to-clarify-on-affiliation%2F676123%2F%22%2C%22http%3A%2F%2Fwww.indianexpress.com%2Fnews%2Fdistancelearning-or-fulltime--iipm-students-confused%2F752287%22%2C%22http%3A%2F%2Fwww.indianexpress.com%2Fnews%2Fiipm-can-t-confer-degrees-ugc%2F679253%2F%22%2C%22http%3A%2F%2Fwww.indianexpress.com%2Fnews%2Fiipm-not-recognized-can-t-award-degrees-ugc%2F987618%22%2C%22http%3A%2F%2Fwww.indianexpress.com%2Fnews%2Fiipm-students-file-cheating-complaint-against-dean%2F790646%22%2C%22http%3A%2F%2Fwww.indybay.org%2F%22%2C%22http%3A%2F%2Fwww.islamabadtimesonline.com%2Frohingya-aung-%25e2%2580%2598silent%25e2%2580%2599-kyi-no-more-a-heroine%2F%22%2C%22http%3A%2F%2Fwww.jafrianews.com%2F%22%2C%22http%3A%2F%2Fwww.jammag.com%2Fnewjam%2Fcareers%2Fn%2Fshowart.php%3Fart_id%3D149%22%2C%22http%3A%2F%2Fwww.kashmirtimes.com%2F%22%2C%22http%3A%2F%2Fwww.manipurtimes.com%2F%22%2C%22http%3A%2F%2Fwww.mensxp.com%2Fwork-life%2Fcareer-center%2F5363-5-things-mba-aspirants-need-to-know-about-iipm.html%22%2C%22http%3A%2F%2Fwww.moneycontrol.com%2Fstocks%2Fcptmarket%2Fsearchpage%2Fsearch.php%3Fhl%3D3%26companyname%3Dsatish%2520seth%26start%3D24%22%2C%22http%3A%2F%2Fwww.mwmjawan.com%2Feng%2Fnews%2Finternatlonal%2Fitem%2F132.html%22%2C%22http%3A%2F%2Fwww.myspace.com%2Fvideo%2Fsatishsethswan%2Fwhy-our-alsatian-dog-felt-restless-describes-satish-seth-swan%2F108188726%22%2C%22http%3A%2F%2Fwww.nndh.com%2F%22%2C%22http%3A%2F%2Fwww.onislam.net%2Fengiish%2Fnews%2Fasia-pacific%2F458186-burma-monks-fuel-rohingya-muslim-hatred.html%22%2C%22http%3A%2F%2Fwww.outlookindia.com%2F%22%2C%22http%3A%2F%2Fwww.rahulyadav.com%2F%22%2C%22http%3A%2F%2Fwww.rina.in%2Fnews%2Fmyanmar-embassy%25e2%2580%2599s-response-on-rohingya-killing%2F%22%2C%22http%3A%2F%2Fwww.silobreaker.com%2Fdelhi-hc-seeks-response-from-supreme-court-lawyer-for-criticizing-judge-52264948356772003931%22%2C%22http%3A%2F%2Fwww.submitlink.khatana.net%2F2010%2F09%2Fjennifer-stano-is-engaged-to.html%22%2C%22http%3A%2F%2Fwww.tehelka.com%2F%22%2C%22http%3A%2F%2Fwww.telegraph.co.uk%2Fnews%2Fpicturegalleries%2Fworldnews%2F9324473%2Ftensions-rise-in-burma-as-rakhine-buddhists-and-rohingya-muslims-clash.html%22%2C%22http%3A%2F%2Fwww.theunrealtimes.com%2F%22%2C%22http%3A%2F%2Fwww.theunrealtimes.com%2F2011%2F06%2F22%2Fdare-to-search-beyond-google-arindham-chaudhury-to-launch-ponytail-seach%2F%22%2C%22http%3A%2F%2Fwww.timesofummah.com%2F2012%2F07%2F24%2Frohingya-muslims-mascare%2Frohingya-muslim-people-bodies-in-myanmar%2F%22%2C%22http%3A%2F%2Fwww.tv.tamilwire.com%2F%22%2C%22http%3A%2F%2Fwww.ugc.ac.in%2Fpdfnews%2F3604913_english.pdf%22%2C%22http%3A%2F%2Fwww.unicreation2u.com%2F%22%2C%22http%3A%2F%2Fwww.uniexchange2u.com%2F%22%2C%22http%3A%2F%2Fwww.unigold2u.com%2F%22%2C%22http%3A%2F%2Fwww.unipay2u-international.com%2F%22%2C%22http%3A%2F%2Fwww.unipay2u-marketing-private-limited.com%2F%22%2C%22http%3A%2F%2Fwww.unipay2u-trading.com%2F%22%2C%22http%3A%2F%2Fwww.unipay2u.com%2F%22%2C%22http%3A%2F%2Fwww.unipaygateway2u.com%2F%22%2C%22http%3A%2F%2Fwww.vergingoldint.com%2F%22%2C%22http%3A%2F%2Fwww.visarev.com%2F%22%2C%22http%3A%2F%2Fyouthcurry.blogspot.in%2F2005%2F10%2Flies-damned-lies-and-fake-blogs.html%22%2C%22http%3A%2F%2Fzahidsay.blogspot.in%2F2012%2F07%2Fcontinued-massacre-of-rohingya-muslims.html%22%2C%22http%3A%2F%2Fwww.bbc.com%2Fbengali%22%2C%22http%3A%2F%2Fwww.bbcbengali.com%2F%22%2C%22http%3A%2F%2Fwww.bbc.com%2Fhindi%2F%22%2C%22http%3A%2F%2Fwww.bbchindi.com%2F%22%2C%22http%3A%2F%2Fwww.bbc.com%2Furdu%2F%22%2C%22http%3A%2F%2Fwww.bbcurdu.com%2F%22%2C%22http%3A%2F%2Ftwocircles.net%2F%22%2C%22http%3A%2F%2Fwww.aljazeera.com%2Fnews%2F2017%2F11%2Fmyanmar-attacks-rohingya-ethnic-cleansing-171122143122930.html%22%2C%22http%3A%2F%2Fwww.bbc.com%2Fnews%2Fworld-asia-india-41318225%22%2C%22http%3A%2F%2Fwww.bbc.com%2Fnews%2Fworld-asia-india-41144884%22%2C%22http%3A%2F%2Fwww.scmp.com%2Fweek-asia%2Fgeopolitics%2Farticle%2F2115839%2Fwhy-do-china-india-back-myanmar-over-rohingya-crisis%22%2C%22https%3A%2F%2Fwww.huffingtonpost.com%2Fentry%2Findias-responses-to-the-complex-rohingya-crisis-in_us_5a0afecce4b06d8966cf32a8%22%2C%22http%3A%2F%2Fqz.com%2F1099577%2Frohingya-crisis-for-refugees-in-india-the-safety-net-is-shrinking-and-government-help-is-nowhere-in-sight%2F%22%2C%22http%3A%2F%2Fwww.channelnewsasia.com%2Fnews%2Fasiapacific%2Fcommentary-in-rohingya-crisis-india-faces-moral-obligations-9230258%22%2C%22http%3A%2F%2Fwww.cbc.ca%2Fnews%2Fworld%2Frohingya-apartheid-amnesty-report-1.4411663%22%2C%22https%3A%2F%2Fwww.nytimes.com%2F2017%2F10%2F06%2Fopinion%2Frohingya-bangladesh-myanmar.html%22%2C%22https%3A%2F%2Fwww.sentinelassam.com%2F%22%2C%22https%3A%2F%2Fwww.medianama.com%2F2019%2F02%2F223-aadhaar-operator-biometrics-stolen-huffpost%2F%22%2C%22http%3A%2F%2Ftheladiesfinger.com%2Fif-you-were-confused-or-enraged-by-smriti-iranis-sanitary-pad-remarks-her-job-here-is-done%2F%22%2C%22https%3A%2F%2Fswarajyamag.com%2Fpolitics%2Fcricket-boycott-wont-move-terroristan-but-its-the-right-way-to-test-our-own-national-resolve%22%2C%22https%3A%2F%2Fwww.ifp.co.in%2F%22%2C%22https%3A%2F%2Ffreepresskashmir.com%2F%22%2C%22https%3A%2F%2Fwww.eenadu.net%2F%22%2C%22https%3A%2F%2Fwww.andhrajyothy.com%2F%22%2C%22http%3A%2F%2Fmpaper.sakshi.com%2F%22%2C%22http%3A%2F%2Flankeshpatrike.com%2F%22%2C%22https%3A%2F%2Fwww.thekashmirmonitor.net%2F%22%2C%22https%3A%2F%2Fkashmirobserver.net%2F%22%2C%22https%3A%2F%2Fwww.heraldgoa.in%2F%22%2C%22http%3A%2F%2Fwww.theshillongtimes.com%2F%22%2C%22http%3A%2F%2Fwww.nagalandpost.com%2F%22%2C%22https%3A%2F%2Fwww.bhaskar.com%2F%22%2C%22https%3A%2F%2Fwww.mathrubhumi.com%2F%22%2C%22https%3A%2F%2Fkashmirreader.com%2F%22%2C%22http%3A%2F%2Fsangaiexpress.com%2F%22%2C%22http%3A%2F%2Fpoknapham.in%2F%22%2C%22http%3A%2F%2Fsanaleibak.in%2F%22%2C%22http%3A%2F%2Fhueiyenlanpao.com%2F%22%2C%22http%3A%2F%2Fnaharolgithoudang.in%2F%22%2C%22http%3A%2F%2Fichelexpress.org%2F%22%2C%22http%3A%2F%2Fireibak.tripod.com%2F%22%2C%22http%3A%2F%2Fimphaltimes.com%2F%22%2C%22http%3A%2F%2Fmanipuronline.com%2F%22%2C%22http%3A%2F%2Fkanglaonline.com%2F%22%2C%22https%3A%2F%2Fnenow.in%2F%22%2C%22http%3A%2F%2Ftheshillongtimes.com%2F%22%2C%22http%3A%2F%2Fnagajournal.com%2F%22%2C%22http%3A%2F%2Finsidene.com%2F%22%2C%22http%3A%2F%2Fsaisat.com%2F%22%2C%22http%3A%2F%2Fnortheastlivetv.com%2F%22%2C%22http%3A%2F%2Feimitimes.in%2F%22%2C%22http%3A%2F%2Fraiot.in%2F%22%2C%22http%3A%2F%2Feastermirrornagaland.com%2F%22%2C%22http%3A%2F%2Fnagalimvoice.com%2F%22%2C%22https%3A%2F%2Fphualvatimes.com%2F%22%2C%22https%3A%2F%2Findianexpress.com%2F%22%2C%22https%3A%2F%2Fwww.ndtv.com%2F%22%5D%7D&mv=1.2.0">TEST
+                            POLITICS AND HUMAN RIGHTS WEBSITES</a>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+<div id="popup-div"></div>
+            <!-- end video trigger -->
+            <!--first-row-->
+            <div class="first-row">
+                <div class="first-row-inner">
+                    <div class="first-col-1">
+                        <div class="first-col-1-inner">
+                            <div class="first-col-1-1">
+                                <div class="first-col-1-header">India's <span>Shutdown Numbers</span></div>
+                                <div class="shutdown-stats-block">
+                                    <div class="map-loader" id="loader-1"><img src="/static/images/loader.gif"></div>
+                                    <div class="shutdown-stats-inner">
+
+                                    </div>
+                                </div>
+                                <div class="lockdowns-count-block">
+                                    <div class="lockdowns-count-block-inner">
+                                        <div class="lockdown-count-row">
+                                            <div class="lockdown-count-col">Total Shutdowns</div>
+
+                                                <div class="lockdown-count-col">{{ totalStats }}</div>
+
+
+                                        </div>
+                                        <div class="lockdown-count-row">
+                                            <div class="lockdown-count-col">Most Shutdowns</div>
+
+                                            <div class="lockdown-count-col" id="most-shutdown-name-and-count"></div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="lockdown-stats-table-block">
+                                    <div class="lockdown-stats-table-block-inner">
+                                        <div class="stats-table" id="table"></div>
+                                        <div class="recent-shutdown-block" style="display: block!important;">
+                                            <div class="recent-shutdown-block-inner" id="render-recent-shutdown">
+
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="pull-down-to-see-detail-block">Pull down to see detailed information</div>
+                                <p class="down-arrow-icon"><i class="fas fa-chevron-down pull-down-arrow"></i> <i
+                                        style="display: none;"
+                                        class="fas fa-angle-up"></i></p>
+                            </div>
+                            <div class="first-col-1-2">
+                                <div class="first-col-1-header">Recent <span>Shutdowns</span></div>
+                                <div class="recent-shutdown-block" id="recent-shutdown-block-2">
+                                    <div class="recent-shutdown-block-inner" >
+                                        {% for item in recentShutdown %}
+                                            <div class="recent-shutdown-card">
+                                                <div class="recent-shutdown-card-date">{{ item.publishedDate|date }}</div>
+                                                <div class="recent-shutdown-card-body">{{ item.description|safe|truncatewords:15 }}</div>
+                                                <div class="recent-shutdown-card-source">Source: <i><a
+                                                        href="{{ item.source }}"><span id="recent-card-source" data-attr="{{ item.district }}"></span> - <b>{{ item.state }}</b> </a></i>
+                                                </div>
+                                            </div>
+                                        {% endfor %}
+
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="first-col-2" >
+                        <div class="map-loader loader-align-left" id="loader-2"><img src="{% static 'images/loader.gif' %}"></div>
+
+                        <div class="first-col-2-inner">
+                            <div class="back-to-map" id="back_to_map"></div>
+                            <div class="let-the-net-work"
+                                 onclick="window.open('https://twitter.com/hashtag/letthenetwork?lang=en', '_blank');">
+                                <p>#LetTheNetWork</p><img src="{% static 'images/let-the-net-work.svg' %}">
+                            </div>
+                            <div class="states-name-block">
+                                <div class="states-name-block-inner">
+                                    <div class="world-india-toggle"><span class="india-active"
+                                                                          id="india-active">India</span>
+
+                                        {#                                <i class="fas fa-toggle-off toggle-icon"></i><i class="fas fa-toggle-on toggle-icon"#}
+                                        {#                                    style="display: none;"></i> <span class="world-active"#}
+                                        {#                                    id="world-active">WORLD</span>#}
+
+                                    </div>
+                                       <div class="state-name" id="state-name"></div>
+                                    <div class="shutdowns-in-state" id="totalCount"></div>
+
+                                </div>
+                            </div>
+                            <div class="india-map">
+                                <div class="first-col-2-map" id="svg">
+                                    <svg xmlns:osb="http://www.openswatchbook.org/uri/2009/osb" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:svg="http://www.w3.org/2000/svg" xmlns="http://www.w3.org/2000/svg" id="svg8" version="1.1" viewBox="0 0 109.328 129.11667"></svg>
+                                </div>
+                                <div class="map-legend">
+                                    <img src="{% static 'images/map/legend.svg' %}" alt="legend" class="map-legend-img">
+                                </div>
+                            </div>
+                            <!-- <div class="world-map">
+                                Coming Soon...
+                            </div> -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- end of first container -->
+            <div class="spacing-2"></div>
+            <div class="text-below-map"><b>Disclaimer</b> - Please note that in case you notice any
+                discrepancies in the number of shutdowns at a state level and district level, it is
+                due
+                to the fact that a single order of shutdown which will be counted as one may be
+                imposed
+                in multiple districts, thereby increasing the district count but keeping the state
+                count
+                the same.
+            </div>
+            <div class="spacing-4"></div>
+            <div class="second-continer">
+                <div class="second-cotainer-col-1">
+                    <p class="second-container-txt-1 txt-center cursor" onclick="formOpen('#test-blocked')">Test what is
+                        being <b>BLOCKED</b> on your internet</p>
+                </div>
+                <div class="second-cotainer-col-2">
+                    <p class="second-container-txt-2 txt-center cursor" onclick="formOpen('#contact-form-2')"
+                       id="form-open-btn-2">Share your experience</p>
+                </div>
+                <div class="second-cotainer-col-3">
+                    <p class="second-container-txt-3 txt-center cursor" onclick="formOpen('#contact-form')"
+                       id="form-open-btn">Report a shutdown</p>
+                </div>
+            </div>
+            <!-- end of second-container -->
+
+            <!-- form for share experience and report shutdown -->
+
+            {#  this is for report shutdown#}
+            <div class="contact-form" id="contact-form" style="display: none">
+
+                <div class="contact-form-inner">
+                    <div class="contact-form-header">
+                        <div class="contact-form-heading">Report a problem</div>
+                        <div class="form-close-btn">
+                            <p id="form-close-btn" onclick="formClose('#contact-form')">X</p>
+                        </div>
+                    </div>
+                    <form id="report-shutdown">
+                        <!-- <div class="spacing-1"></div> -->
+
+                        <div id="form-report-shutdown-inner">
+                            <div class="form-fields">
+                                <label for="form-state">State :</label><br>
+                                <input id="form-state" name="form-state" type="text" required>
+                            </div>
+                            <div class="form-fields">
+                                <label for="form-district">District :</label><br>
+                                <input id="form-district" name="form-district" type="text" required>
+                            </div>
+                            <div class="form-fields">
+                                <label for="form-locality">Locality :</label><br>
+                                <input id="form-locality" name="form-locality" type="text" required>
+                            </div>
+                            <div class="form-fields">
+                                <label for="form-date">Date :</label><br>
+                                <input id="form-date" name="form-date" type="date" required>
+                            </div>
+                            <div class="form-fields">
+                                <label for="form-description">Description :</label><br>
+                                <textarea id="form-description" name="form-description" type="text" required></textarea>
+                            </div>
+                            <div class="form-fields">
+                                <label for="form-source">Source :<span class="smallLabels">(Multiple sources can be added using seperated comma ','.)</span></label><br>
+                                <input id="form-source" name="form-source" type="text" required>
+                            </div>
+                            <div class="form-fields">
+                                <label for="form-source">E-mail : <span class="smallLabels">(Optional. Will not be published.)</span></label><br>
+                                <input id="form-email" name="form-email" type="email" required>
+                            </div>
+                        </div>
+                        <div class="form-fields">
+                            <span class="form-close-btn-2" onclick="formClose('#contact-form')">Close</span>
+                            <button class="form-sbumit-btn" id="report-shutdown-submit" type="submit">Submit</button>
+                        </div>
+                        <div class="form-fields" id="submission-msg-2"></div>
+                        <div class="spacing-5"></div>
+                    </form>
+
+                </div>
+            </div>
+
+            {#    this is for share your experience #}
+            <div class="contact-form" id="contact-form-2" style="display: none">
+
+                <div class="contact-form-inner">
+                    <div class="contact-form-header">
+                        <div class="contact-form-heading">Share your experience</div>
+                        <div class="form-close-btn">
+                            <p id="form-close-btn-2" onclick="formClose('#contact-form-2')">X</p>
+                        </div>
+                    </div>
+                    <form id="shareExperience">
+                        <!-- <div class="spacing-1"></div> -->
+
+
+                        <div class="form-share-experience-inner" id="form-share-experience-inner">
+                            <div class="form-content">
+                                You can help us address the issue of Internet shutdowns! If you have ever experienced a
+                                shutdown or know someone who has, share the experience with us. What aspects of your
+                                life
+                                did it affect, and in what ways did it make things difficult?<br>
+
+                                Please note that we may publish your input on our website and/or on other media to
+                                highlight
+                                the impact it has on the lives of the people. We may make minimal content edits (like
+                                spelling or grammar), but the substance will remain unchanged. If you'd rather that we
+                                didn't attribute your input to you, please enter "Anonymous" as your name.
+                                <br>
+                                You can view our Privacy Policy <a
+                                    href="{% url 'privacy-policy' %}" style="color: var(--sky-blue)">here</a>.
+
+                                <br>
+                                Please note that fields marked * are mandatory.
+                                <br>
+                                You can also email us at mail@sflc.in with your experience
+
+                            </div>
+                            <div class="form-fields">
+                                <label for="form-state">Name :<span class="smallLabels">(You may choose to remain anonymous. However, a name gives more credibility to the story.)</span></label><br>
+                                <input id="form-state" name="form-name" type="text" required>
+                            </div>
+                            <div class="form-fields">
+                                <label for="form-locality">Locality :<span class="smallLabels"> (This is the city/State where the Internet was shutdown.)</span></label><br>
+                                <input id="form-locality" name="form-locality" type="text" required>
+                            </div>
+                            <div class="form-fields">
+                                <label for="form-date">Date :<span class="smallLabels">(When was the Internet shut down in your area?)</span></label><br>
+                                <input id="form-date" name="form-date" type="date" required>
+                            </div>
+                            <div class="form-fields">
+                                <label for="form-experience">Experience :<span class="smallLabels">(What impact did the shutdown have on your life? You can share the challenges and difficulties that you had to face due to shutdown or the losses incurred during that period.)</span></label><br>
+                                <textarea id="form-experience" name="form-experience" type="text" required></textarea>
+                            </div>
+                            <div class="form-fields">
+                                <label for="form-detail">Other Details: <span class="smallLabels">(You may choose to provide other details like your age, gender, profession, duration of shutdown or any other detail which might help us understand and highlight your story better)</span></label><br>
+                                <input id="form-detail" name="form-detail" type="text" required>
+                            </div>
+                            <div class="form-fields">
+                                <label for="form-source">E-mail : <span class="smallLabels">(We will not share or publish this, but we may use it to contact you.)</span></label><br>
+                                <input id="form-email" name="form-email" type="email" required>
+                            </div>
+                        </div>
+                        <div class="form-fields">
+                            <span class="form-close-btn-2" onclick="formClose('#contact-form-2')" id="form-close-btn-2">Close</span>
+                            <button class="form-sbumit-btn" id="shareExperienceSubmit" type="submit">Submit</button>
+                        </div>
+                        <div class="form-fields" id="submission-msg"></div>
+                        <div class="spacing-5"></div>
+                    </form>
+
+                </div>
+            </div>
+
+            <!-- end of forms -->
+
+<!-- shutdown video container for now it was not necessary so removed and added a template called shutdownVideos.html under map/shutdownVideos.html you can import it here if you want it anytime in the future. -->
+
+            <!-- third container -->
+            <div class="custom-container" id="hide-shutdown-heading">
+                <div class="spacing-2 hide-in-mobile"></div>
+                <div class="forth-container-1">
+                    <img class="forth-container-header-img" src="{% static '/images/map/01.svg' %}">
+                    <p class="forth-container-header txt-left bold-800">Longest Shutdowns</p>
+                </div>
+            </div>
+            <!-- end of third container -->
+            <div class="spacing-4" id="hide-shutdown-spacing-2"></div>
+            <!-- starting of forth-container -->
+            <div class="custom-container" id="hide-shutdown-container">
+                <div class="forth-container">
+                    <div class="forth-container-inner">
+                        {% for item in longestshutdown %}
+                            <div class="forth-container-row">
+                                <div class="forth-container-col-1">
+                                    <p class="forth-container-col-1-txt-1">{{ item.days }} days</p>
+                                    <p class="forth-container-col-1-txt-2"><b>{{ item.district }},</b> {{ item.state }}
+                                    </p>
+                                    <p class="forth-container-col-1-txt-3">{{ item.startDate|date }}
+                                        - {{ item.endDate|date }}</p>
+                                </div>
+                                <div class="forth-container-col-2">
+                                    <div class="forth-container-divider"></div>
+                                    <div class="forth-container-circle"></div>
+                                </div>
+                                <div class="forth-container-col-3">
+                                    <p class="forth-container-col-3-txt-1">
+                                    <p class="unhidden-txt"
+                                       id="ls{{ item.id }}">{{ item.description|truncatewords:60|safe }}</p>
+                                    <p class="hidden-txt" id="ls{{ item.id }}h"
+                                       style="display: none">{{ item.description|safe }}</p>
+                                    </p>
+                                    <p class="forth-container-col-3-txt-2" id="read-more"
+                                       onclick="ToggleFaq('ls{{ item.id }}')">Read more</p>
+                                </div>
+                            </div>
+                        {% endfor %}
+
+
+                    </div>
+
+                </div>
+            </div>
+            <!-- forth container end -->
+            <div class="spacing-3"></div>
+            <!-- fifth container start -->
+            <div class="spacing-2"></div>
+            <div class="fifth-container-1">
+                <img class="fifth-container-header-img" src="{% static '/images/map/02.svg' %}">
+                <p class="fifth-container-header txt-right bold-800">Trending&nbsp; </p>
+            </div>
+
+            {#            <div class="fifth-container-heading">Trending</div>#}
+            <div class="spacing-5"></div>
+            <div class="custom-container">
+                <div class="fifth-container">
+                    <div class="fifth-inner-container">
+                        <div class="fifth-col-1">
+                            <div class="fifth-col-1-header">Tweets by @NetShutdowns</div>
+                            <div class="fifth-col-1-inner">
+
+                                <a class="twitter-timeline" href="
+                        https://twitter.com/NetShutdowns?ref_src=twsrc%5Etfw
+                        ">Tweets by NetShutdowns</a>
+
+                                <!-- <div class="fifth-col-1-row"></div>
+                                <div class="spacing-1"></div>
+                                <div class="fifth-col-1-row"></div>
+                                <div class="spacing-1"></div>
+                                <div class="fifth-col-1-row"></div>
+                                <div class="spacing-1"></div>
+                                <div class="fifth-col-1-row"></div> -->
+
+                            </div>
+                        </div>
+                        <div class="fifth-col-2">
+                            <div class="fifth-col-2-inner" id="trendingVideosContainer">
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="spacing-5"></div>
+            <!-- ending of fifth container -->
+            <!-- <div class="sixth-container-header">
+                 by <b>@NetShutdowns</b>
+             </div>
+
+               <div class="spacing-5"></div>
+             <div class="sixth-container-header-2">
+                 <b>Trends</b> in Shutdowns
+             </div>
+             -->
+            <div class="spacing-4 hide-in-mobile"></div>
+            <div class="forth-container-1">
+                <img class="forth-container-header-img" src="{% static '/images/map/03.svg' %}">
+                <p class="forth-container-header font-31px txt-left bold-800">&nbsp; &nbsp;Trends In Shutdowns</p>
+            </div>
+            <div class="spacing-6"></div>
+            <div class="sixth-container">
+                <div class="sixth-container-overlay">
+                    <div class="sixth-container-overlay-left" onclick="overlayLeft()" id="overlay-left"></div>
+                    <div class="sixth-container-overlay-right" onclick="overlayRight()" id="overlay-right"></div>
+                </div>
+                <div class="sixth-container-inner" id="sixth-container-inner">
+                    <div class="sixth-col-1">
+                        <div class="sixth-col-image">
+                            <div class="sixth-col-img" id="line-chart"></div>
+                        </div>
+                        <div class="sixth-col-text">
+                            <p class="sixth-col-text-header"  id="graph-1-title">{{ graph1.title }}</p>
+                            <p class="sixth-col-text-detail" id="graph-1-desc">{{ graph1.description }}</p>
+                        </div>
+                    </div>
+                    <div class="sixth-col-1">
+                        <div class="sixth-col-image">
+                            <div id="linec" class="sixth-col-img"></div>
+                        </div>
+                        <div class="sixth-col-text">
+                            <p class="sixth-col-text-header" id="graph-3-title">{{ graph3.title }}</p>
+                            <p class="sixth-col-text-detail" id="graph-3-desc">{{ graph3.description }}</p>
+                        </div>
+                    </div>
+                    <div class="sixth-col-1">
+                        <div class="sixth-col-image">
+                            <div id="area-chart" class="sixth-col-img"></div>
+                        </div>
+                        <div class="sixth-col-text">
+                            <p class="sixth-col-text-header" id="graph-2-title">{{ graph2.title }}</p>
+                            <p class="sixth-col-text-detail" id="graph-2-desc">{{ graph2.description }}</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div>
+
+            </div>
+            <!-- end of sixth col -->
+
+       {% include 'supporting_orgs.html' %}
+
+            <div class="second-chart"></div>
+            <div id="chart-2-2"></div>
+            <div class="spacing-7"></div>
+
+            <!-- jquery script -->
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
+
+            <!--scripts-->
+
+  <script>
+var yearWiseData = () => {
+
+const apiUrl = '/get-shutdowns-year/';
+
+// Creating a new XMLHttpRequest object
+const xhr = new XMLHttpRequest();
+
+// Opening a synchronous GET request to the API endpoint
+xhr.open('GET', apiUrl, false); // The third parameter (false) makes it synchronous
+
+try {
+  // Sending the request
+  xhr.send();
+
+  // Checking if the request was successful (status code 200)
+  if (xhr.status === 200) {
+    // Parsing the JSON response
+    const data = JSON.parse(xhr.responseText);
+
+    // Process the data received from the API
+    yearWiseData= data.msg
+  } else {
+    // Handling non-successful status codes
+    console.error(`HTTP error! Status: ${xhr.status}`);
+  }
+} catch (error) {
+  // Handling errors that occurred during the request
+  console.error('Error during API call:', error);
+}
+
+}
+yearWiseData()
+
+            </script>
+
+            <!--map scripts-->
+
+            <script src="https://cdn.jsdelivr.net/npm/underscore@1.12.0/underscore-min.js"></script>
+         <script async defer type="text/javascript" src="{% static 'newscript/yearwiseshutdowns.js' %}"></script>
+{#            <script type="text/javascript" src="{% static 'javascript/SVG-map/stroke.js' %}"></script>#}
+            <script async type="text/javascript" src="{% static 'javascript/SVG-map/pikupColor.js' %}"></script>
+            <script type="text/javascript" src="{% static 'newscript/india.js' %}"></script>
+            <script async type="text/javascript" src="{% static 'newscript/main.js' %}"></script>
+            <script async type="text/javascript" src="{% static 'javascript/SVG-map/mapPlot.js' %}"></script>
+            <script async type="text/javascript" src="{% static 'javascript/main.js' %}"></script>
+            <script defer async type="text/javascript" src="{% static 'javascript/SVG-map/carousel.js' %}"></script>
+            <script defer async="async" type="text/javascript" src="{% static 'newscript/allinone.js' %}"></script>
+            <script async="async" type="text/javascript" src="{% static 'newscript/activeshutdowns.js' %}"></script>
+            <script async type="text/javascript" src="{% static 'newscript/trendingVideos.js' %}"></script>
+     <script async type="text/javascript" src="{% static 'newscript/carousel.js' %}"></script>
+     <script async type="text/javascript" src="{% static 'newscript/popup.js' %}"></script>
+            <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+            <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
+            <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+            <script defer async type="text/javascript" src="{% static 'newscript/graph.js' %}"></script>
+            <script>function loadRecentCard(){
+            let recent_shutdown_card=document.querySelectorAll("#recent-card-source");recent_shutdown_card.forEach(function (item){let temp_value_array=JSON.parse(item.attributes["data-attr"].value.replaceAll("'",'"'));let temp_array_string=""; temp_value_array.forEach(function (num){temp_array_string+=num+", "; });temp_array_string=temp_array_string.slice(0,-2);item.textContent=temp_array_string})
+        }
+        loadRecentCard()
+        </script>
+        </div>
+    </div>
+    </div>
+    </div>
+
+    </div>
+{% endblock %}
+

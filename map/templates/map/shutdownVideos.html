@@ -1,0 +1,44 @@
+            <div class="spacing-3" id="hidden-video-spacing" style="display: none;"></div>
+            <div class="shutdown-videos-container" style="display:none" id="hidden-video-container">
+                <div class="spacing-5"></div>
+                <div class="shutdown-video-header-1"><b>Shutdown </b>Videos</div>
+                <div class="spacing-3"></div>
+                <div class="shutdown-videos-inner">
+
+                    {% for shutdownVideo in shutdownVideos %}
+                        <div class="shutdown-video-col"
+                             style="background-image:url('{{ shutdownVideo.uploadThumbnail.url }}')">
+                            <img src="{% static '/images/playbtn.png' %}"
+                                 onclick="window.open('{{ shutdownVideo.videoLink }}', '_blank');"
+                                 data-url="{{ shutdownVideo.videoLink }}"
+                                 alt="playbtn" class="shutdown-play-btn">
+                            <div class="shutdown-video-txt">{{ shutdownVideo.videoTitle }}...</div>
+                        </div>
+                    {% endfor %}
+
+                </div>
+                <div class="spacing-3"></div>
+                        <div class="shutdown-video-header-1"><b>Research </b>Work</div>
+                        <div class="spacing-3"></div>
+                        <div class="shutdown-videos-inner">
+                            <div class="shutdown-video-col"
+                                style="background-image:url('https://lh3.googleusercontent.com/proxy/f9sk_snoaYi1dvn1X_KPTqbfJAjGo5Z4_KtypfgTFQueNgfNuugjVGcaDtjqFLm2B-BBxjMWDTQs7IFcwjzknMdn0g9JVWFzJ7qRfzbI4JdzHN4xJHeNlgF-S1KrO8JVsCAQ')">
+                                <img src="{% static '/images/playbtn.png'%}" alt="playbtn" class="shutdown-play-btn"
+                                    data-url="https://www.youtube.com/embed/snNxT-F6RxY">
+                                <div class="shutdown-video-txt">Kashmir’s Shutdown ...</div>
+                            </div>
+                            <div class="shutdown-video-col"
+                                style="background-image:url('https://lh3.googleusercontent.com/proxy/f9sk_snoaYi1dvn1X_KPTqbfJAjGo5Z4_KtypfgTFQueNgfNuugjVGcaDtjqFLm2B-BBxjMWDTQs7IFcwjzknMdn0g9JVWFzJ7qRfzbI4JdzHN4xJHeNlgF-S1KrO8JVsCAQ')">
+                                <img src="{% static '/images/playbtn.png'%}" alt="playbtn" class="shutdown-play-btn"
+                                    data-url="https://www.youtube.com/embed/snNxT-F6RxY">
+                                <div class="shutdown-video-txt">Kashmir’s Shutdown ...</div>
+                            </div>
+                            <div class="shutdown-video-col"
+                                style="background-image:url('https://lh3.googleusercontent.com/proxy/f9sk_snoaYi1dvn1X_KPTqbfJAjGo5Z4_KtypfgTFQueNgfNuugjVGcaDtjqFLm2B-BBxjMWDTQs7IFcwjzknMdn0g9JVWFzJ7qRfzbI4JdzHN4xJHeNlgF-S1KrO8JVsCAQ')">
+                                <img src="{% static '/images/playbtn.png'%}" alt="playbtn" class="shutdown-play-btn"
+                                    data-url="https://www.youtube.com/embed/snNxT-F6RxY">
+                                <div class="shutdown-video-txt">Kashmir’s Shutdown ...</div>
+                            </div>
+                        </div>
+            </div>
+            <div class="spacing-3" id="hide-shutdown-spacing"></div>

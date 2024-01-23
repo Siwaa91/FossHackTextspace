@@ -1,0 +1,52 @@
+{% extends 'base.html' %} {% load static %}
+
+{% block head %}
+<link rel="stylesheet" href="{% static 'In_news/news.css' %}">
+{% endblock %}
+
+{% block content %}
+
+    <div class="spacing-4" id="hide-shutdown-spacing-2"></div>
+    <!-- starting of forth-container -->
+    <div class="custom-container" id="hide-shutdown-container">
+    <h1 style="text-align: center;"> In News</h1>
+            <div class="spacing-2"></div>
+   <p class="page-heading">
+  This section lists down news articles featuring SFLC.in's Internet Shutdowns Tracker
+   </p>
+
+    <div class="spacing-4"></div>
+        <div class="forth-container">
+            <div class="forth-container-inner">
+
+                {% for post in posts %}
+
+                <div class="forth-container-row">
+                 <div class="forth-container-news">
+                     <div class="forth-news-title">{{ post.news_title|capfirst }}</div>
+                     <div class="forth-news-description">{{ post.news_description|safe }}
+                        <br><br>
+                        <div class="forth-news-date">{{ post.news_date|date }}</div>
+                        <br>
+                        <a class="forth-container-col-3-txt-2" href="{{ post.news_url }}" target="_blank" id="read-more">Read more</a>
+                     </div>
+
+                 </div>
+
+                </div>
+                     <div class="spacing-2"></div>
+                {% endfor %}
+
+            <div class="spacing-2"></div>
+
+            </div>
+
+        </div>
+    </div>
+
+    <div class="spacing-6"></div>
+
+{% endblock %}
+{% block script %}
+<script src="{% static 'policy_tracker/policy_tracker.js' %}"></script>
+{% endblock %}

@@ -1,0 +1,147 @@
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel='stylesheet' href="{% static 'shutdownsIndia/css/style.css' %}">
+    {#    <link rel='stylesheet' href="{% static 'shutdownsIndia/css/dateTime.css' %}">#}
+    <link rel='stylesheet' href="{% static 'component/spacing.css' %}">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+          rel="stylesheet">
+
+    <title>Shutdowns India Admin panel</title>
+    {#    for date time picker#}
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons">
+
+    {% block content %}
+        <div class="spacing-3"></div>
+        <div class="spacing-3"></div>
+        <div class="form-container">
+            <div class="form-container-inner">
+                <div class="container-form-col">
+                    <form action="{% url 'shutdown-india' %}" method="post">
+                        {% csrf_token %}
+                        <div class="form-group">
+                            <label for="author">Author:</label>
+                            <input type="text" name="author" class="form-control" value="{{ user.username|capfirst }}"
+                                   id="author">
+                        </div>
+                        <div class="form-group">
+                            <label for="description">Description:</label>
+                            <textarea name="description" class="form-control" id="description"></textarea>
+                        </div>
+
+
+                        <div class="form-group">
+                            <label for="states">Select State:</label>
+                            <select class="form-control" name="state" id="states">
+                                <option readonly>Select State</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="district">Select District:</label>
+                            <select class="form-control" id="district"></select>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Selected District:</label>
+                            <div id="selected-districts">
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="form-group">
+                            <label for="networkEffected">Network Effected:</label>
+                            <select name="networkEffected" class="form-control" id="networkEffected">
+                                <option readonly>Please Select</option>
+                                <option value="na">Not available</option>
+                                <option value="mobile">Mobile</option>
+                                <option value="broadband">Broadband</option>
+                                <option value="both">Both</option>
+                            </select>
+
+                        </div>
+
+                        <div class="form-group">
+                            <label for="nature">Nature:</label>
+                            <select name="nature" class="form-control" id="nature" required>
+                                <option readonly>Please Select</option>
+                                <option value="preventive">Preventive</option>
+                                <option value="reactive">Reactive</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="source">Source:</label>
+                            <input type="text" class="form-control" name="source" id="source" required>
+                        </div>
+                        <div class="form-group form-check">
+                            <input type="checkbox" class="form-check-input" name="verified" id="exampleCheck1" required>
+                            <label class="form-check-label" for="exampleCheck1">Verified</label>
+                        </div>
+                        {#                         <div class="form-group form-check">#}
+                        {#                        <input type="checkbox" class="form-check-input" name="sameday" id="exampleCheck1">#}
+                        {#                        <label class="form-check-label" for="exampleCheck1">Same day</label>#}
+                        {#                    </div>#}
+                        <div class="form-group">
+                            <label class="label-control">Start Date </label>
+                            <input type="text" class="form-control datetimepicker" name="startDate"
+                                   id="start_date_picker" value="">
+                        </div>
+                        <div class="form-group">
+                            <label class="label-control">End Date</label>
+                            <input type="text" class="form-control datetimepicker" name="endDate" id="end_date_picker"
+                                   value="">
+                        </div>
+                        <div class="form-group">
+                            <label class="label-control">Published Date</label>
+                            <input type="text" class="form-control datetimepicker" name="pubDate" id="pub_date_picker"
+                                   value="">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="duration">Duration</label>
+                            <input type="number" class="form-control" name="duration" id="duration" required>
+                        </div>
+                        <button type="submit">Submit</button>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="{% static 'shutdownsIndia/js/main.js' %}"></script>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.15.1/moment.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.7.14/js/bootstrap-datetimepicker.min.js"></script>
+        <link rel="stylesheet"
+              href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+        <link rel="stylesheet"
+              href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.7.14/css/bootstrap-datetimepicker.min.css">
+
+        <script type="text/javascript">
+            $(function () {
+                $("#start_date_picker").datetimepicker();
+            });
+        </script>
+
+        <script type="text/javascript">
+            $(function () {
+                $("#end_date_picker").datetimepicker();
+            });
+        </script>
+
+        <script type="text/javascript">
+            $(function () {
+                $("#pub_date_picker").datetimepicker();
+            });
+        </script>
+    {% endblock %}
+

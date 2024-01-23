@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block head %}
+<link rel="stylesheet" href="{% static 'blog/post_list.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="main-body">
+    <div class="spacing-5"></div>
+    <div class="blog-container">
+        <div class='page-header'>
+            <h1> Internet Shutdowns Blog </h1>
+            <p>
+                {# We fight for the Internet! #}
+            </p>
+        </div>
+        <div class="spacing-2"></div>
+        <div class="blog-section">
+            <div class="blog-section-inner">
+                {% for post in post_list %}
+                <div class="blog-card-body">
+                    <h1 class="blog-post-title">{{ post.title }}</h1>
+                    <div class="blog-author-info">{{ post.created_on }}</div>
+<div class="blog-description" >{{ post.content | safe }}</div>
+                    <a href="{% url 'post_detail' post.slug %}" class="blog-read-btn">Read more</a>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+
+        <!-- Pagination nav -->
+        <div class="pagination-block">
+            {% if is_paginated %}
+            <ul class="pagination-menu">
+                {% if page_obj.has_previous %}
+                <li><a href="?page={{ page_obj.previous_page_number }}" class="page-link">&laquo; PREV </a></li>
+                {% endif %}
+                {% if page_obj.has_next %}
+                <li><a href="?page={{ page_obj.next_page_number }}" class="page-link"> NEXT &raquo;</a></li>
+                {% endif %}
+            </ul>
+            {% endif %}
+        </div>
+    </div>
+    <div class="spacing-5"></div>
+</div>
+<script>
+
+document.addEventListener('DOMContentLoaded', function() {
+  var blogDescriptions = document.querySelectorAll('.blog-description');
+  blogDescriptions.forEach(function(description) {
+    description.innerText = description.innerText.slice(0, 200) + '...';
+  });
+});
+
+</script>
+{% endblock %}

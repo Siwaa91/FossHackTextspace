@@ -1,0 +1,85 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title> {% block title %}
+    {% endblock %}</title>
+<style>@font-face {
+  font-family: 'Atkinson';
+  src: url('{% static "font/Atkinson-Hyperlegible-Regular-102.woff" %}') format('woff'); /* Pretty Modern Browsers */ /* Pretty Modern Browsers */
+  src:url('{% static "font/Atkinson-Hyperlegible-Regular-102.woff" %}') format('woff'),
+        url('{% static "font/Atkinson-Hyperlegible-Bold-102.eot" %}') format('embedded-opentype'),/* IE6-IE8 */
+        url('{% static "font/Atkinson-Hyperlegible-BoldItalic-102.eot" %}') format('embedded-opentype'), /* IE6-IE8 */
+        url('{% static "font/Atkinson-Hyperlegible-Italic-102.eot" %}') format('embedded-opentype'), /* IE6-IE8 */
+        url('{% static "font/Atkinson-Hyperlegible-Regular-102.eot" %}') format('embedded-opentype'), /* IE6-IE8 */
+        url('{% static "font/Atkinson-Hyperlegible-Bold-102a.woff2" %}') format('woff2'), /* Pretty Modern Browsers */
+       url('{% static "font/Atkinson-Hyperlegible-BoldItalic-102a.woff2" %}') format('woff2'), /* Pretty Modern Browsers */
+       url('{% static "font/Atkinson-Hyperlegible-Italic-102a.woff2" %}') format('woff2'), /* Pretty Modern Browsers */
+       url('{% static "font/Atkinson-Hyperlegible-Regular-102a.woff2" %}') format('woff2'), /* Pretty Modern Browsers */
+       url('{% static "font/Atkinson-Hyperlegible-Bold-102.woff" %}') format('woff'), /* Pretty Modern Browsers */
+       url('{% static "font/Atkinson-Hyperlegible-BoldItalic-102.woff" %}') format('woff'), /* Pretty Modern Browsers */
+       url('{% static "font/Atkinson-Hyperlegible-Italic-102.woff" %}') format('woff'), /* Pretty Modern Browsers */
+       url('{% static "font/Atkinson-Hyperlegible-Regular-102.woff" %}') format('woff'), /* Pretty Modern Browsers */
+
+}</style>
+
+    <link rel="shortcut icon" type="image/png" href="{% static 'images/site-icon.png' %}" />
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <link rel='stylesheet' type='text/css' href="{% static 'css/navbar.css' %}">
+    <link rel='stylesheet' type='text/css' href="{% static 'css/footer.css' %}">
+    <link rel='stylesheet' type='text/css' href="{% static 'component/spacing.css' %}">
+    <link rel='stylesheet' type='text/css' href="{% static 'component/font.css' %}">
+
+    <!-- Matomo -->
+    <script type="text/javascript">
+      var _paq = window._paq || [];
+      /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+      _paq.push(['trackPageView']);
+      _paq.push(['enableLinkTracking']);
+      (function() {
+            var u="//analytics.softwarefreedom.in/";
+            _paq.push(['setTrackerUrl', u+'matomo.php']);
+            _paq.push(['setSiteId', '1']);
+            var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+            g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
+          })();
+    </script>
+    <!-- End Matomo Code -->
+        {% block head %}
+    {% endblock head %}
+
+</head>
+
+<body>
+
+    {% block navbar %}
+
+        {% include 'navbar.html' %}
+
+    {% endblock navbar %}
+
+    {% block content %}
+    <!-- Content Goes here -->
+    {% endblock content %}
+
+    {% block footer %} {% include 'footer.html' %}
+
+    {% endblock footer %}
+
+
+    <!-- Scripts -->
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="{% static 'javascript/navbar.js' %}"></script>
+
+{% block script %}
+
+{% endblock %}
+
+</body>
+
+</html>
