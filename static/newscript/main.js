@@ -14,6 +14,12 @@ function renderDistrict(id){
     }
 }
 
+//added code for rendering state name on top right corner of the map
+
+function dist_name(dist_name) {
+    var name_function = '<h4>' + dist_name + '</h4>';
+    $('#state-name').html(name_function);
+}
 $(document).on("click", "path", function () {
     renderDistrict($(this).attr("id"))
 })
