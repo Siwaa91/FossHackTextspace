@@ -19,11 +19,11 @@ xhrRequest.onload = function() {
 
       if (!arrayData2.isDisabled){
    let indexData = `<div class="is-popup" id="is-popup">
-            <div class="is-popup-inner">
-                <div class="is-popup-row">
+            <div class="is-popup-inner" id="is-popup-inner" onclick="closePopupIfClickedOutside()">
+                <div class="is-popup-row" >
                     <div class="popup-close-btn" id="popup-close-btn" onclick="closeIsPopup()">X</div>
                     <div class="popup-header">${arrayData2.header}</div>
-                    <div class="popup-inner-row">
+                    <div class="popup-inner-row" >
                             <div class="popup-col-1" style="background-image:url('https://internetshutdowns.in/media/${arrayData2.uploadThumbnail}');">
                 
                         <img src="/static/images/playbtn.png" data-url="${arrayData2.videoLink}"
@@ -60,4 +60,18 @@ showPopup()
 
 function closeIsPopup(){
       $("#is-popup").fadeOut(500);
+}
+
+//this function helps in closing the popup if clicked outside area
+function closePopupIfClickedOutside(){
+     document.addEventListener('click', function(event) {
+    var specificDiv = document.getElementById('is-popup-inner');
+    var clickedElement = event.target;
+
+   if (specificDiv && specificDiv.contains(clickedElement) && specificDiv !== clickedElement) {
+       console.log(" ")
+    } else {
+         $("#is-popup").fadeOut(500);
+    }
+});
 }
