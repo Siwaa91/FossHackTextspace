@@ -1191,6 +1191,7 @@ a {
           align-items: center;
   background: var(--purple);
   color: white;
+    cursor: pointer;
 }
 
 .fifth-col-2 {
