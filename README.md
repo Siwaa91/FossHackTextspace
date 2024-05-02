@@ -1,4 +1,4 @@
-![logo](https://internetshutdowns.in/img/sflc-tracker-logo.png)
+![logo](https://internetshutdowns.in/static/images/sflc-tracker-logo.png)
 
 This is the django based tracker for internet shutdowns happening in India since 2012. 
 
